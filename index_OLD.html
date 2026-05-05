@@ -15,19 +15,18 @@
     <title>Dashboard</title>
   </head>
   <body>
-    <input type="checkbox" id="sidebar-toggle" class="sidebar-toggle-input" />
-    <label for="sidebar-toggle" class="sidebar-overlay"></label>
-    <div class="page-content">
+    <div class="loader">
+      <h1>Loading<span>....</span></h1>
+    </div>
+    <div class="page-content index-page">
       <div class="sidebar">
         <div class="brand">
-          <label for="sidebar-toggle" class="xmark">
-            <i class="fa-solid fa-xmark"></i>
-          </label>
+          <i class="fa-solid fa-xmark xmark"></i>
           <h3 class="brand-name">Zana</h3>
         </div>
         <ul>
           <li>
-            <a href="index.html" class="sidebar-link active">
+            <a href="index.html" class="sidebar-link">
               <i class="fa-regular fa-chart-bar fa-fw"></i>
               <span>Dashboard</span>
             </a>
@@ -82,9 +81,7 @@
       </div>
       <main>
         <div class="header">
-          <label for="sidebar-toggle" class="bar-item">
-            <i class="fa-solid fa-bars"></i>
-          </label>
+          <i class="fa-solid fa-bars bar-item"></i>
           <div class="search">
             <input type="search" placeholder="Type A Keyword" />
           </div>
@@ -503,11 +500,7 @@
                 <div class="latest-post-likes-comments">
                   <ul>
                     <li>
-                      <input type="checkbox" id="heart-toggle" class="heart-checkbox" />
-                      <label for="heart-toggle" class="heart">
-                        <i class="fa-heart"></i>
-                      </label>
-                      <span>1.8K</span>
+                      <i class="fa-regular fa-heart heart"></i><span>1.8K</span>
                     </li>
                     <li>
                       <i class="fa-regular fa-comments"></i><span>500</span>
@@ -662,5 +655,6 @@
         </div>
       </main>
     </div>
+    <script src="./js/script.js"></script>
   </body>
 </html>

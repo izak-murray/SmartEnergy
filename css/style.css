@@ -2621,3 +2621,97 @@ main .projects-box .projects-box-section2 table tr td a.rejected {
 .main-content .plans-boxes .plan-box ul li:last-child p {
   color: var(--third-color);
 }
+
+/* ============================================================
+   no-js.css — CSS-only replacements for the old script.js logic.
+   Load this AFTER style.css.
+   ============================================================ */
+
+/* Hide all the helper checkboxes that drive the toggles ------ */
+.sidebar-toggle-input,
+.toggle-input,
+.heart-checkbox {
+  display: none;
+}
+
+/* --- Mobile sidebar open/close (replaces bar-item / xmark JS) --- */
+
+/* The bar-item and xmark in the markup are now <label> elements;
+   keep the cursor & sizing they already had. */
+.header label.bar-item {
+  display: inline-flex;
+  align-items: center;
+}
+.sidebar .brand label.xmark {
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+
+/* Dim background that closes the sidebar when tapped (mobile only) */
+.sidebar-overlay {
+  display: none;
+}
+@media (max-width: 767px) {
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 999;
+    cursor: pointer;
+  }
+  .sidebar-toggle-input:checked ~ .sidebar-overlay {
+    display: block;
+  }
+  .sidebar-toggle-input:checked ~ .page-content .sidebar {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    box-shadow: 0 0 10px 0px #ddd;
+  }
+}
+
+/* --- Toggle switches (replaces .toggle / .toggle.left JS) ------ */
+/* Default (checkbox CHECKED) keeps the original .toggle look:
+   blue background, check-icon on the right.
+   When UNCHECKED we render the old .left styles. */
+
+.toggle-input:not(:checked) + .toggle {
+  background-color: var(--ccc-color);
+}
+.toggle-input:not(:checked) + .toggle::before {
+  content: "\f00d";
+  color: var(--ccc-color);
+  right: 43px;
+}
+
+/* Smaller toggles inside the profile-info-section2 need a different
+   "off" position because the track is only 80px wide. */
+.main-content
+  .profile-box
+  .profile-info-section2
+  .general-information
+  .toggle-input:not(:checked)
+  + .toggle::before {
+  right: 63px;
+}
+
+/* --- Heart icon (replaces the heart click handler) ------------- */
+/* The heart is now <input type="checkbox"> + <label class="heart">.
+   Unchecked = outline grey. Checked = filled red. */
+
+label.heart {
+  cursor: pointer;
+  display: inline-block;
+}
+label.heart .fa-heart {
+  font-family: var(--fa-style-family-classic);
+  font-weight: 400; /* regular / outline */
+  color: #888;
+}
+.heart-checkbox:checked + label.heart .fa-heart {
+  font-weight: 900; /* solid */
+  color: red;
+}
