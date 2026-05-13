@@ -1,14 +1,15 @@
-<!--this is a login page: editing by juna --> 
+<!--this is a Sign up page: editing by juna --> 
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Energy Login</title> 
+  <title>Smart Energy Sign Up</title> 
 
   <link rel="stylesheet" href="css/style-login.css">
 </head>  
+
 <body>
     <section class="login-section">
         <div class="login-card">
@@ -17,25 +18,31 @@
                     <img src="images/logo.png" alt="Smart Energy logo">
                     <p>Smart Energy</p>
                 </div>
-                <h1>Welcome back</h1>
-                <p class="subtitle">Please enter your details</p>
+                <h1>Create your account</h1>
+                <p class="subtitle">Let's get started</p>
                 <div class="formrow">
                     <div class="formel">
-                        <label for="email">Email Address</label>
+                        <label for="fullname">Full name</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="e.g. Elise Monroe" required>
+                    </div>
+                </div>
+                <div class="formrow">
+                    <div class="formel">
+                        <label for="email">Email address</label>
                         <input type="email" id="email" name="email" placeholder="example@email.com" required>
                     </div>
                 </div>
                 <div class="formrow">
                     <div class="formel">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter password" required>
+                        <input type="password" id="password" name="password" placeholder="Create a password" required>
                     </div>
                 </div>
                 <div class="formrow">
-                    <button type="submit">Sign in</button>
+                    <button type="submit">Continue</button>
                 </div>
                 <div class="signup-link">
-                    <p>Don't have an account?<a href="pages/signup.html">Sign up</a></p>
+                    <p>Already have an account?<a href="../index.html">Sign in</a></p>
                 </div>
             </form>
         </div>
