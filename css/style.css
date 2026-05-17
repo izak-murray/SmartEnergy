@@ -918,3 +918,20 @@ details.faq-item[open] summary::after { transform: rotate(-135deg); }
   text-decoration: none;
   font-family: var(--font-body);
 }
+
+/* ── Logo bolt fix ─────────────────────────────────────────── */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.bolt {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  background: var(--accent-orange);
+  clip-path: polygon(60% 0%, 40% 45%, 70% 45%, 35% 100%, 55% 58%, 28% 58%);
+}
