@@ -5,32 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Energy — Sign In</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/all.min.css" />
 </head>
 <body>
-  <section class="auth-section">
-    <div class="auth-card">
-      <div class="logo">
-        <div class="bolt"></div>
-        Smart Energy
+    <section class="auth-section">
+      <div class="auth-card">
+        <form action="dashboard.html" method="post">
+            <div class="logo">
+                <img src="images/logo.png" alt="Smart Energy logo">
+                <p>Smart Energy</p>
+            </div>
+            <h1>Welcome back</h1>
+            <p class="subtitle">Please enter your details</p>
+            <div class="formrow">
+                <div class="formel">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                </div>
+            </div>
+            <div class="formrow">
+                <div class="formel">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+            </div>
+            <div class="formrow">
+                <button class="btn-primary">Sign in</button>
+            </div>
+            <div class="signup-link">
+                <p>Don't have an account?<a href="pages/signup-1.html">Sign up</a></p>
+            </div>
+        </form>
       </div>
-      <h1>Welcome back</h1>
-      <p class="subtitle">Sign in to your account</p>
-      <div class="formrow">
-        <div class="formel">
-          <label for="email">Email address</label>
-          <input id="email" type="email" placeholder="you@email.com" />
-        </div>
-      </div>
-      <div class="formrow">
-        <div class="formel">
-          <label for="password">Password</label>
-          <input id="password" type="password" placeholder="Password" />
-        </div>
-      </div>
-      <a class="btn-primary" href="pages/dashboard.html">Sign in</a>
-      <p class="signup-link">No account? <a href="pages/signup-1.html">Sign up</a></p>
-    </div>
-  </section>
+    </section>
 </body>
 </html>

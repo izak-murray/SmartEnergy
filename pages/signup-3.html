@@ -1,34 +1,60 @@
+<!--this is a Sign up page editing by juna --> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Energy — Your Appliances</title>
-  <link rel="stylesheet" href="../css/style.css" />
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Energy Sign Up</title> 
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>  
+
 <body>
-  <section class="auth-section">
-    <div class="auth-card wide">
-      <div class="logo"><div class="bolt"></div>Smart Energy</div>
-      <div class="step-indicator">
-        <div class="step-dot done"></div>
-        <div class="step-dot done"></div>
-        <div class="step-dot active"></div>
-      </div>
-      <h1>Your appliances</h1>
-      <p class="subtitle">Step 3 of 3 — Select everything in your home</p>
-      <div class="appliance-grid">
-        <input class="app-cb" type="checkbox" id="a1" /><label class="appliance-toggle" for="a1"><span class="app-emoji">❄️</span>Air conditioning</label>
-        <input class="app-cb" type="checkbox" id="a2" /><label class="appliance-toggle" for="a2"><span class="app-emoji">🧊</span>Fridge / freezer</label>
-        <input class="app-cb" type="checkbox" id="a3" /><label class="appliance-toggle" for="a3"><span class="app-emoji">🫧</span>Washing machine</label>
-        <input class="app-cb" type="checkbox" id="a4" /><label class="appliance-toggle" for="a4"><span class="app-emoji">🌀</span>Dryer</label>
-        <input class="app-cb" type="checkbox" id="a5" /><label class="appliance-toggle" for="a5"><span class="app-emoji">🚿</span>Hot water system</label>
-        <input class="app-cb" type="checkbox" id="a6" /><label class="appliance-toggle" for="a6"><span class="app-emoji">🍽️</span>Dishwasher</label>
-        <input class="app-cb" type="checkbox" id="a7" /><label class="appliance-toggle" for="a7"><span class="app-emoji">📺</span>TV / entertainment</label>
-        <input class="app-cb" type="checkbox" id="a8" /><label class="appliance-toggle" for="a8"><span class="app-emoji">💡</span>Lighting</label>
-      </div>
-      <a class="btn-primary" href="dashboard.html" style="margin-top:14px;">Build my dashboard →</a>
-    </div>
-  </section>
+    <section class="auth-section">
+        <div class="auth-card wide">
+            <form action="dashboard.html" method="post">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Smart Energy logo">
+                    <p>Smart Energy</p>
+                </div>
+                <div class="step-indicator">
+                    <div class="step-dot done"></div>
+                    <div class="step-dot done"></div>
+                    <div class="step-dot active"></div>
+                </div>
+                <h1>Your appliances</h1>
+                <p class="subtitle">Step 3 of 3 — Select everything in your home</p>
+                <div class="appliance-grid">
+                    <input class="app-cb" type="checkbox" id="a1" name="appliances" value="air-conditioning">
+                    <label class="appliance-toggle" for="a1"><span class="app-emoji">❄️</span>Air conditioning</label>
+
+                    <input class="app-cb" type="checkbox" id="a2" name="appliances" value="fridge-freezer">
+                    <label class="appliance-toggle" for="a2"><span class="app-emoji">🧊</span>Fridge / freezer</label>
+
+                    <input class="app-cb" type="checkbox" id="a3" name="appliances" value="washing-machine">
+                    <label class="appliance-toggle" for="a3"><span class="app-emoji">🫧</span>Washing machine</label>
+
+                    <input class="app-cb" type="checkbox" id="a4" name="appliances" value="dryer">
+                    <label class="appliance-toggle" for="a4"><span class="app-emoji">🌀</span>Dryer</label>
+
+                    <input class="app-cb" type="checkbox" id="a5" name="appliances" value="hot-water-system">
+                    <label class="appliance-toggle" for="a5"><span class="app-emoji">🚿</span>Hot water system</label>
+
+                    <input class="app-cb" type="checkbox" id="a6" name="appliances" value="dishwasher">
+                    <label class="appliance-toggle" for="a6"><span class="app-emoji">🍽️</span>Dishwasher</label>
+
+                    <input class="app-cb" type="checkbox" id="a7" name="appliances" value="tv-entertainment">
+                    <label class="appliance-toggle" for="a7"><span class="app-emoji">📺</span>TV / entertainment</label>
+
+                    <input class="app-cb" type="checkbox" id="a8" name="appliances" value="lighting">
+                    <label class="appliance-toggle" for="a8"><span class="app-emoji">💡</span>Lighting</label>
+                </div>
+                <div class="formrow">
+                    <a class="btn-primary" href="dashboard.html">Build my dashboard →</a>
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 </html>
