@@ -3,7 +3,7 @@
    Complete styles for all pages
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Work+Sans:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Bakbak+One&display=swap');
 
 /* ── DESIGN TOKENS ─────────────────────────────────────────── */
 :root {
@@ -18,14 +18,16 @@
   --light-green:     #E8F5EE;
   --border:          #E0E0E0;
 
-  --font-heading: 'DM Sans', sans-serif;
-  --font-body:    'Work Sans', sans-serif;
-  --font-data:    'Roboto Mono', monospace;
+  --font-heading: 'Atkinson Hyperlegible', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-data:    'DM Mono', monospace;
+  --font-logo:    'Bakbak One', sans-serif;
 
   --fw-400: 400;
   --fw-500: 500;
   --fw-700: 700;
 }
+/* #endregion */
 
 /* ── RESET ─────────────────────────────────────────────────── */
 *, *::before, *::after {
@@ -46,6 +48,7 @@ body.app-body {
   background-color: var(--bg-main);
   overflow-y: auto;
 }
+/* #endregion */
 
 /* ── SHARED: BOLT ICON ─────────────────────────────────────── */
 .bolt {
@@ -55,10 +58,12 @@ body.app-body {
   clip-path: polygon(60% 0%, 40% 45%, 70% 45%, 35% 100%, 55% 58%, 28% 58%);
   flex-shrink: 0;
 }
+/* #endregion */
 
 /* ═══════════════════════════════════════════════════════════
    AUTH PAGES — index.html, signup-1/2/3.html
    ═══════════════════════════════════════════════════════════ */
+   /* #region */
 
 .auth-section {
   width: 100%;
@@ -253,10 +258,12 @@ input::placeholder {
   display: block;
   margin-bottom: 4px;
 }
+/* #endregion */
 
 /* ═══════════════════════════════════════════════════════════
    APP SHELL — dashboard, appliances, account, settings, faq
    ═══════════════════════════════════════════════════════════ */
+   /* #region */
 
 .shell {
   display: flex;
@@ -935,3 +942,4 @@ details.faq-item[open] summary::after { transform: rotate(-135deg); }
   background: var(--accent-orange);
   clip-path: polygon(60% 0%, 40% 45%, 70% 45%, 35% 100%, 55% 58%, 28% 58%);
 }
+/* #endregion */
