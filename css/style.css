@@ -1231,7 +1231,9 @@ html:has(#size-l:checked) .main .section-label { font-size: 14px; }
 
 /* ── HEADER & FOOTER CLAMP ─────────────────────────────────── */
 
-html, body { height: 100%; overflow: hidden; }
+html { height: 100%; }
+body { height: 100%; }
+body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below */
 
 .page-wrapper {
   display: flex;
@@ -1276,7 +1278,9 @@ html, body { height: 100%; overflow: hidden; }
 .page-content {
   flex: 1;
   min-height: 0;
+  min-width: 0;
 }
+
 
 @media (max-width: 640px) {
   .sidebar {
@@ -1302,9 +1306,21 @@ html, body { height: 100%; overflow: hidden; }
     white-space: nowrap;
   }
 
+  .stat-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .nav-item.active {
     border-left-color: transparent;
     border-bottom-color: var(--secondary-green);
+  }
+
+  body.app-body {
+    overflow: auto;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
   }
 
   .shell {
@@ -1314,11 +1330,16 @@ html, body { height: 100%; overflow: hidden; }
   .main {
     flex: 1;
     min-width: 0;
+    margin-left: 0;
+    overflow-y: auto;
   }
 
-  .main,
-  .page-content,
-  .shell {
-    min-width: 0;
+  body:has(#sidebar-toggle:checked) .sidebar {
+    width: 100%;
   }
+
+  body:has(#sidebar-toggle:checked) .main {
+    margin-left: 0;
+  }
+
 }
