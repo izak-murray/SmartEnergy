@@ -559,7 +559,7 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   font-size: 13px;
   font-weight: var(--fw-700);
   color: var(--primary-green);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -567,6 +567,7 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
 
 /* ── Bar chart ─────────────────────────────────────────────── */
 .bar-chart {
+  margin-top: 80px;
   height: 110px;
   display: flex;
   align-items: flex-end;
@@ -660,8 +661,14 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
 /* ── Tips & advice ─────────────────────────────────────────── */
 .tips-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.tips-section::-webkit-scrollbar {
+  display: none;
 }
 
 .tip-row {
@@ -672,6 +679,8 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 10px 12px;
+  flex-shrink: 0;
+  width: 200px; 
 }
 
 .tip-icon {
@@ -1397,7 +1406,9 @@ body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below 
     flex-direction: column;
     min-height: 0;
   }
-
+  .bar-chart {
+    margin-top: auto;
+  }
 
 
 }
