@@ -860,30 +860,107 @@ input::placeholder {
 .link-row:hover { background: var(--light-green); }
 
 .link-chev {
-  font-size: 18px;
-  color: var(--text-gray);
+  font-size: 23px;
+  color: var(--primary-green);
   font-family: var(--font-body);
+  padding-right: 10px;
 }
 
 /* ── Settings page: text-size button group ─────────────────── */
+.size-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .size-group {
   display: flex;
   gap: 4px;
 }
 
-.size-group .btn-sm {
-  min-width: 32px;
-  min-height: 32px;
-  padding: 4px 8px;
+.size-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
   font-family: var(--font-body);
+  font-weight: var(--fw-700);
+  cursor: pointer;
+  line-height: 1;
 }
 
-.size-group .btn-sm:nth-child(1) { font-size: 11px; }
-.size-group .btn-sm:nth-child(2) { font-size: 14px; }
-.size-group .btn-sm:nth-child(3) { font-size: 17px; }
+.size-s { font-size: 11px; }
+.size-m { font-size: 14px; }
+.size-l { font-size: 17px; }
+
+.size-radio:checked + .size-btn {
+  background: var(--accent-orange);
+  color: var(--text-black);
+}
 
 /* ── Settings page: WCAG touch target fix ──────────────────── */
 .toggle-row { min-height: 44px; }
+
+/* ── Settings Page: Password change modal ──────────────────── */
+.pwd-input {
+  display: block;
+  width: 100%;
+  padding: 9px 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: white;
+}
+
+.pwd-input:focus {
+  outline: none;
+  border-color: var(--secondary-green);
+}
+
+.modal-submit {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  background: var(--primary-green);
+  color: var(--bg-main);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: var(--fw-500);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-submit:hover {
+  background: #265a2e;
+}
+
+.modal-cancel {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-gray);
+  text-decoration: none;
+  font-family: var(--font-body);
+}
+
+.modal-cancel:hover {
+  color: var(--text-black);
+}
+
+.success-gif {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
 
 /* ── FAQ page ──────────────────────────────────────────────── */
 .faq-list {
@@ -1002,5 +1079,42 @@ details.faq-item[open] summary::after { transform: rotate(-135deg); }
   min-width: 18px;
   background: var(--accent-orange);
   clip-path: polygon(60% 0%, 40% 45%, 70% 45%, 35% 100%, 55% 58%, 28% 58%);
+}
+
+/* ── Text-size scaling via :has() ──────────────────────────── */
+/* Default = medium (no override needed) */
+
+/* Small: shrink the main content area */
+html:has(#size-s:checked) .main {
+  font-size: 12px;
+}
+html:has(#size-s:checked) .main .view-title { font-size: 15px; }
+html:has(#size-s:checked) .main .tgl-label  { font-size: 12px; }
+html:has(#size-s:checked) .main .tgl-sub    { font-size: 10px; }
+html:has(#size-s:checked) .main .section-label { font-size: 11px; }
+
+/* Large: grow the main content area */
+html:has(#size-l:checked) .main {
+  font-size: 16px;
+}
+html:has(#size-l:checked) .main .view-title { font-size: 22px; }
+html:has(#size-l:checked) .main .tgl-label  { font-size: 16px; }
+html:has(#size-l:checked) .main .tgl-sub    { font-size: 13px; }
+html:has(#size-l:checked) .main .section-label { font-size: 14px; }
+
+/* ── Notifications: pause-all overrides the rest ───────────── */
+.toggle-row:has(#pause-all:checked) ~ .toggle-row {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Force the track to grey */
+.toggle-row:has(#pause-all:checked) ~ .toggle-row input:checked + .tgl-track {
+  background: #ccc;
+}
+
+/* Force the handle back to the left */
+.toggle-row:has(#pause-all:checked) ~ .toggle-row input:checked + .tgl-track::before {
+  transform: translateX(0);
 }
 /* #endregion */

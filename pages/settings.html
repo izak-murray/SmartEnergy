@@ -7,6 +7,35 @@
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="app-body">
+  <!-- Password change modal -->
+<div class="modal-overlay" id="password-modal">
+  <div class="modal">
+    <h3>Change password</h3>
+    <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">
+      Enter your current password and choose a new one.
+    </p>
+    
+    <input class="pwd-input" type="password" placeholder="Current password" />
+    <input class="pwd-input" type="password" placeholder="New password" />
+    <input class="pwd-input" type="password" placeholder="Confirm new password" />
+    
+    <a class="modal-submit" href="#password-success">Reset password</a>
+    <a class="modal-cancel" href="#">Cancel</a>
+  </div>
+</div>
+
+<!-- Success modal (the meme payload) -->
+<div class="modal-overlay" id="password-success">
+  <div class="modal" style="text-align:center;">
+    <h3>Password reset!</h3>
+    <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">
+      (in concept)
+    </p>
+    <img class="success-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjNnejQ4Y29idmVxbGF2eDU5bGFiYjN0YTJvdmdyMWN5Ym02OGhvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IaWa1S6rMWzzt0Tt07/giphy.gif" alt="fake password reset success. get stickbugged" />
+    <a class="modal-close-link" href="#">Okay</a>
+  </div>
+</div>
+
 <div id="app"><div class="shell">
   <nav class="sidebar">
     <div class="sidebar-logo"><div class="bolt"></div>Smart Energy</div>
@@ -26,7 +55,7 @@
             <div class="tgl-label">Pause all notifications</div>
             <div class="tgl-sub">Turn off everything below at once</div>
           </div>
-          <label class="toggle"><input type="checkbox" /><div class="tgl-track"></div></label>
+          <label class="toggle"><input type="checkbox" id="pause-all" /><div class="tgl-track"></div></label>
         </div>
         <div class="toggle-row">
           <div>
@@ -66,7 +95,7 @@
           </div>
           <span class="link-chev">›</span>
         </a>
-        <a class="link-row" href="#">
+        <a class="link-row" href="#password-modal">
           <div>
             <div class="tgl-label">Change password</div>
             <div class="tgl-sub">Last updated 3 months ago</div>
@@ -87,9 +116,12 @@
             <div class="tgl-sub">Adjust for easier reading</div>
           </div>
           <div class="size-group">
-            <button class="btn-sm" type="button">A</button>
-            <button class="btn-sm filled" type="button">A</button>
-            <button class="btn-sm" type="button">A</button>
+            <input type="radio" name="textsize" id="size-s" class="size-radio" />
+            <label for="size-s" class="btn-sm size-btn size-s">A</label>
+            <input type="radio" name="textsize" id="size-m" class="size-radio" checked />
+            <label for="size-m" class="btn-sm size-btn size-m">A</label>
+            <input type="radio" name="textsize" id="size-l" class="size-radio" />
+            <label for="size-l" class="btn-sm size-btn size-l">A</label>
           </div>
         </div>
         <div class="toggle-row">
@@ -143,7 +175,7 @@
         <a class="link-row" href="#">
           <div>
             <div class="tgl-label">Solar inverter</div>
-            <div class="tgl-sub">Not applicable — no solar on file</div>
+            <div class="tgl-sub">Not connected — no solar on file</div>
           </div>
           <span class="link-chev">›</span>
         </a>
