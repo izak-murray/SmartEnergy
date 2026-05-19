@@ -7,31 +7,60 @@
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="app-body">
+  <input type="checkbox" id="sidebar-toggle" />
+  <div class="page-wrapper">
+    <header class="site-header"></header>
+    <div class="page-content">
  
-<div class="modal-overlay" id="score-modal">
-  <div class="modal">
-    <h3>How your energy score works</h3>
-    <p><strong style="color:var(--primary-green);">Usage vs similar homes (50%)</strong> — compares your kWh to households of similar size in your suburb.</p>
-    <p><strong style="color:var(--primary-green);">Tips completed (30%)</strong> — how many of your personalised saving tips you've acted on.</p>
-    <p><strong style="color:var(--primary-green);">Off-peak usage (20%)</strong> — how much of your usage falls in cheaper rate periods.</p>
-    <p>A higher score means lower bills and less environmental impact.</p>
-    <a class="modal-close-link" href="#">Got it</a>
-  </div>
-</div>
+      <div class="modal-overlay" id="score-modal">
+        <div class="modal">
+          <h3>How your energy score works</h3>
+          <p><strong style="color:var(--primary-green);">Usage vs similar homes (50%)</strong> — compares your kWh to households of similar size in your suburb.</p>
+          <p><strong style="color:var(--primary-green);">Tips completed (30%)</strong> — how many of your personalised saving tips you've acted on.</p>
+          <p><strong style="color:var(--primary-green);">Off-peak usage (20%)</strong> — how much of your usage falls in cheaper rate periods.</p>
+          <p>A higher score means lower bills and less environmental impact.</p>
+          <a class="modal-close-link" href="#">Got it</a>
+        </div>
+      </div>
  
-<div id="app">
-  <div class="shell">
- 
-    <nav class="sidebar">
-      <div class="sidebar-logo"><div class="bolt"></div>Smart Energy</div>
-      <a class="nav-item active" href="dashboard.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Dashboard</a>
-      <a class="nav-item" href="appliances.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Appliances</a>
-      <a class="nav-item" href="account.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Account</a>
-      <a class="nav-item" href="settings.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
-      <a class="nav-item" href="faq.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-    </nav>
- 
-    <main class="main">
+      <div id="app">
+        <div class="shell">
+      
+          <nav class="sidebar">
+            <div class="sidebar-logo">
+              <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
+              <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
+            </div>
+            <label class="sidebar-toggle-btn" for="sidebar-toggle">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            </label>
+            <a class="nav-item active" href="dashboard.html">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span class="nav-label">Dashboard</span>
+            </a>
+            <a class="nav-item" href="appliances.html">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <span class="nav-label">Appliances</span>
+            </a>
+            <a class="nav-item" href="account.html">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span class="nav-label">Account</span>
+            </a>
+            <a class="nav-item" href="settings.html">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+              <span class="nav-label">Settings</span>
+            </a>
+            <a class="nav-item" href="faq.html">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span class="nav-label">FAQ</span>
+            </a>
+          </nav>
+      
+          <main class="main">
  
       <div class="top-row">
         <h1>Good morning, Elise</h1>
@@ -112,10 +141,20 @@
           <div class="tip-row"><div class="tip-icon">🫧</div><div><div class="tip-title">Wash on cold cycle</div><div class="tip-desc">Heating water accounts for 90% of washing machine energy.</div><span class="tip-save">Save ~$6/month</span></div></div>
           <div class="tip-row"><div class="tip-icon">💡</div><div><div class="tip-title">Switch to LED bulbs</div><div class="tip-desc">Uses 75% less energy than incandescent.</div><span class="tip-save">Save ~$4/month</span></div></div>
         </div>
-      </div>
+        </div>
  
-    </main>
-  </div>
+        </main>
+      </div>
+    </div>
+  </div><!-- end .page-content -->
+<footer class="site-footer">
+  <a href="faq.html">Help &amp; FAQ</a>
+  <a href="#">Privacy</a>
+  <a href="#">Terms</a>
+</footer>
+</div><!-- end .page-wrapper -->
+</body>
+</html>
 </div>
 </body>
 </html>

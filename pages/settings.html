@@ -7,200 +7,244 @@
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="app-body">
-  <!-- Password change modal -->
-<div class="modal-overlay" id="password-modal">
-  <div class="modal">
-    <h3>Change password</h3>
-    <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">
-      Enter your current password and choose a new one.
-    </p>
-    
-    <input class="pwd-input" type="password" placeholder="Current password" />
-    <input class="pwd-input" type="password" placeholder="New password" />
-    <input class="pwd-input" type="password" placeholder="Confirm new password" />
-    
-    <a class="modal-submit" href="#password-success">Reset password</a>
-    <a class="modal-cancel" href="#">Cancel</a>
-  </div>
-</div>
+  <input type="checkbox" id="sidebar-toggle" />
+  <div class="page-wrapper">
+    <header class="site-header">
+    </header>
+    <div class="page-content">
 
-<!-- Success modal (the meme payload) -->
-<div class="modal-overlay" id="password-success">
-  <div class="modal" style="text-align:center;">
-    <h3>Password reset!</h3>
-    <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">
-      (in concept)
-    </p>
-    <img class="success-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjNnejQ4Y29idmVxbGF2eDU5bGFiYjN0YTJvdmdyMWN5Ym02OGhvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IaWa1S6rMWzzt0Tt07/giphy.gif" alt="fake password reset success. get stickbugged" />
-    <a class="modal-close-link" href="#">Okay</a>
-  </div>
-</div>
-
-<div id="app"><div class="shell">
-  <nav class="sidebar">
-    <div class="sidebar-logo"><div class="bolt"></div>Smart Energy</div>
-    <a class="nav-item" href="dashboard.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Dashboard</a>
-    <a class="nav-item" href="appliances.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Appliances</a>
-    <a class="nav-item" href="account.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Account</a>
-    <a class="nav-item active" href="settings.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
-    <a class="nav-item" href="faq.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-  </nav>
-  <main class="main">
-    <div class="view-title">Settings</div>
-    <div class="settings-grid">
-      <div class="settings-card">
-        <span class="section-label">Notifications</span>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">Pause all notifications</div>
-            <div class="tgl-sub">Turn off everything below at once</div>
-          </div>
-          <label class="toggle"><input type="checkbox" id="pause-all" /><div class="tgl-track"></div></label>
-        </div>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">Usage spike alerts</div>
-            <div class="tgl-sub">Notify when 20%+ above average</div>
-          </div>
-          <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-        </div>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">Weekly summary</div>
-            <div class="tgl-sub">Every Monday morning</div>
-          </div>
-          <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-        </div>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">New tip suggestions</div>
-            <div class="tgl-sub">When new tips are available</div>
-          </div>
-          <label class="toggle"><input type="checkbox" /><div class="tgl-track"></div></label>
-        </div>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">Off-peak reminders</div>
-            <div class="tgl-sub">When cheaper rates start</div>
-          </div>
-          <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-        </div>
-      </div>
-      <div class="settings-card">
-        <span class="section-label">Account</span>
-        <a class="link-row" href="account.html">
-          <div>
-            <div class="tgl-label">Profile details</div>
-            <div class="tgl-sub">Name, address, household setup</div>
-          </div>
-          <span class="link-chev">›</span>
-        </a>
-        <a class="link-row" href="#password-modal">
-          <div>
-            <div class="tgl-label">Change password</div>
-            <div class="tgl-sub">Last updated 3 months ago</div>
-          </div>
-          <span class="link-chev">›</span>
-        </a>
-      </div>
-      <div class="settings-card">
-        <span class="section-label">Display &amp; Accessibility</span>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">Text size</div>
-            <div class="tgl-sub">Adjust for easier reading</div>
-          </div>
-          <div class="size-group">
-            <input type="radio" name="textsize" id="size-s" class="size-radio" />
-            <label for="size-s" class="btn-sm size-btn size-s">A</label>
-            <input type="radio" name="textsize" id="size-m" class="size-radio" checked />
-            <label for="size-m" class="btn-sm size-btn size-m">A</label>
-            <input type="radio" name="textsize" id="size-l" class="size-radio" />
-            <label for="size-l" class="btn-sm size-btn size-l">A</label>
-          </div>
-        </div>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">High contrast mode</div>
-            <div class="tgl-sub">Stronger colours for low vision</div>
-          </div>
-          <label class="toggle"><input type="checkbox" id="high-contrast" /><div class="tgl-track"></div></label>
-        </div>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">Show costs in dollars</div>
-            <div class="tgl-sub">Display $ alongside kWh figures</div>
-          </div>
-          <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-        </div>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">Show carbon footprint</div>
-            <div class="tgl-sub">Display CO₂ equivalents on charts</div>
-          </div>
-          <label class="toggle"><input type="checkbox" /><div class="tgl-track"></div></label>
-        </div>
-      </div>
-      <div class="settings-card">
-        <span class="section-label">Bill splitting</span>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">Enable bill splitting</div>
-            <div class="tgl-sub">Divide costs between flatmates by usage</div>
-          </div>
-          <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-        </div>
-        <a class="link-row" href="#">
-          <div>
-            <div class="tgl-label">Manage flatmates</div>
-            <div class="tgl-sub">3-way split currently active</div>
-          </div>
-          <span class="link-chev">›</span>
-        </a>
-      </div>
-      <div class="settings-card">
-        <span class="section-label">Connected services</span>
-        <a class="link-row" href="#">
-          <div>
-            <div class="tgl-label">Smart meter</div>
-            <div class="tgl-sub">Not connected — set up for real-time data</div>
-          </div>
-          <span class="link-chev">›</span>
-        </a>
-        <a class="link-row" href="#">
-          <div>
-            <div class="tgl-label">Solar inverter</div>
-            <div class="tgl-sub">Not connected — no solar on file</div>
-          </div>
-          <span class="link-chev">›</span>
-        </a>
-        <div class="acct-row">
-          <span>Energy retailer</span>
-          <span>Origin Energy</span>
-        </div>
-      </div>
-      <div class="settings-card">
-        <span class="section-label">Data &amp; Privacy</span>
-        <div class="toggle-row">
-          <div>
-            <div class="tgl-label">Anonymous usage analytics</div>
-            <div class="tgl-sub">Help improve Smart Energy (no personal data shared)</div>
-          </div>
-          <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-        </div>
-        <a class="link-row" href="../data/userdata.json" download="smart-energy-elise-monroe.json">
-          <div>
-            <div class="tgl-label">Download my data</div>
-            <div class="tgl-sub">Get a copy of everything we hold</div>
-          </div>
-          <span class="link-chev">›</span>
-        </a>
-        <div style="padding-top:14px;">
-          <a class="btn-sm danger" href="../index.html" style="text-decoration:none;">Delete my account</a>
-        </div>
+    <!-- Password change modal -->
+    <div class="modal-overlay" id="password-modal">
+      <div class="modal">
+        <h3>Change password</h3>
+        <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">
+          Enter your current password and choose a new one.
+        </p>
+        <input class="pwd-input" type="password" placeholder="Current password" />
+        <input class="pwd-input" type="password" placeholder="New password" />
+        <input class="pwd-input" type="password" placeholder="Confirm new password" />
+        <a class="modal-submit" href="#password-success">Reset password</a>
+        <a class="modal-cancel" href="#">Cancel</a>
       </div>
     </div>
-  </main>
-</div></div>
+
+    <!-- Success modal -->
+    <div class="modal-overlay" id="password-success">
+      <div class="modal" style="text-align:center;">
+        <h3>Password reset!</h3>
+        <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">(in concept)</p>
+        <img class="success-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjNnejQ4Y29idmVxbGF2eDU5bGFiYjN0YTJvdmdyMWN5Ym02OGhvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IaWa1S6rMWzzt0Tt07/giphy.gif" alt="fake password reset success. get stickbugged" />
+        <a class="modal-close-link" href="#">Okay</a>
+      </div>
+    </div>
+
+    <div id="app"><div class="shell">
+
+      <nav class="sidebar">
+        <div class="sidebar-logo">
+          <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
+          <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
+        </div>
+
+        <label class="sidebar-toggle-btn" for="sidebar-toggle">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </label>
+
+        <a class="nav-item" href="dashboard.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a class="nav-item" href="appliances.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span class="nav-label">Appliances</span>
+        </a>
+        <a class="nav-item" href="account.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="nav-label">Account</span>
+        </a>
+        <a class="nav-item active" href="settings.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+        <a class="nav-item" href="faq.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span class="nav-label">FAQ</span>
+        </a>
+      </nav>
+
+      <main class="main">
+        <div class="view-title">Settings</div>
+        <div class="settings-grid">
+          <div class="settings-card">
+            <span class="section-label">Notifications</span>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">Pause all notifications</div>
+                <div class="tgl-sub">Turn off everything below at once</div>
+              </div>
+              <label class="toggle"><input type="checkbox" id="pause-all" /><div class="tgl-track"></div></label>
+            </div>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">Usage spike alerts</div>
+                <div class="tgl-sub">Notify when 20%+ above average</div>
+              </div>
+              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+            </div>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">Weekly summary</div>
+                <div class="tgl-sub">Every Monday morning</div>
+              </div>
+              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+            </div>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">New tip suggestions</div>
+                <div class="tgl-sub">When new tips are available</div>
+              </div>
+              <label class="toggle"><input type="checkbox" /><div class="tgl-track"></div></label>
+            </div>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">Off-peak reminders</div>
+                <div class="tgl-sub">When cheaper rates start</div>
+              </div>
+              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <span class="section-label">Account</span>
+            <a class="link-row" href="account.html">
+              <div>
+                <div class="tgl-label">Profile details</div>
+                <div class="tgl-sub">Name, address, household setup</div>
+              </div>
+              <span class="link-chev">›</span>
+            </a>
+            <a class="link-row" href="#password-modal">
+              <div>
+                <div class="tgl-label">Change password</div>
+                <div class="tgl-sub">Last updated 3 months ago</div>
+              </div>
+              <span class="link-chev">›</span>
+            </a>
+          </div>
+
+          <div class="settings-card">
+            <span class="section-label">Display &amp; Accessibility</span>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">Text size</div>
+                <div class="tgl-sub">Adjust for easier reading</div>
+              </div>
+              <div class="size-group">
+                <input type="radio" name="textsize" id="size-s" class="size-radio" />
+                <label for="size-s" class="btn-sm size-btn size-s">A</label>
+                <input type="radio" name="textsize" id="size-m" class="size-radio" checked />
+                <label for="size-m" class="btn-sm size-btn size-m">A</label>
+                <input type="radio" name="textsize" id="size-l" class="size-radio" />
+                <label for="size-l" class="btn-sm size-btn size-l">A</label>
+              </div>
+            </div>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">High contrast mode</div>
+                <div class="tgl-sub">Stronger colours for low vision</div>
+              </div>
+              <label class="toggle"><input type="checkbox" id="high-contrast" /><div class="tgl-track"></div></label>
+            </div>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">Show costs in dollars</div>
+                <div class="tgl-sub">Display $ alongside kWh figures</div>
+              </div>
+              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+            </div>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">Show carbon footprint</div>
+                <div class="tgl-sub">Display CO₂ equivalents on charts</div>
+              </div>
+              <label class="toggle"><input type="checkbox" /><div class="tgl-track"></div></label>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <span class="section-label">Bill splitting</span>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">Enable bill splitting</div>
+                <div class="tgl-sub">Divide costs between flatmates by usage</div>
+              </div>
+              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+            </div>
+            <a class="link-row" href="#">
+              <div>
+                <div class="tgl-label">Manage flatmates</div>
+                <div class="tgl-sub">3-way split currently active</div>
+              </div>
+              <span class="link-chev">›</span>
+            </a>
+          </div>
+
+          <div class="settings-card">
+            <span class="section-label">Connected services</span>
+            <a class="link-row" href="#">
+              <div>
+                <div class="tgl-label">Smart meter</div>
+                <div class="tgl-sub">Not connected — set up for real-time data</div>
+              </div>
+              <span class="link-chev">›</span>
+            </a>
+            <a class="link-row" href="#">
+              <div>
+                <div class="tgl-label">Solar inverter</div>
+                <div class="tgl-sub">Not connected — no solar on file</div>
+              </div>
+              <span class="link-chev">›</span>
+            </a>
+            <div class="acct-row">
+              <span>Energy retailer</span>
+              <span>Origin Energy</span>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <span class="section-label">Data &amp; Privacy</span>
+            <div class="toggle-row">
+              <div>
+                <div class="tgl-label">Anonymous usage analytics</div>
+                <div class="tgl-sub">Help improve Smart Energy (no personal data shared)</div>
+              </div>
+              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+            </div>
+            <a class="link-row" href="../data/userdata.json" download="smart-energy-elise-monroe.json">
+              <div>
+                <div class="tgl-label">Download my data</div>
+                <div class="tgl-sub">Get a copy of everything we hold</div>
+              </div>
+              <span class="link-chev">›</span>
+            </a>
+            <div style="padding-top:14px;">
+              <a class="btn-sm danger" href="../index.html" style="text-decoration:none;">Delete my account</a>
+            </div>
+          </div>
+        </div>
+      </main>
+
+    </div></div>
+    </div>
+    <footer class="site-footer">
+      <a href="faq.html">Help &amp; FAQ</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </footer>
+  </div>
 </body>
 </html>

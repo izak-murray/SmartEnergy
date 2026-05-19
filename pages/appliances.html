@@ -7,45 +7,81 @@
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body class="app-body">
-<div id="app"><div class="shell">
-  <nav class="sidebar">
-    <div class="sidebar-logo"><div class="bolt"></div>Smart Energy</div>
-    <a class="nav-item" href="dashboard.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Dashboard</a>
-    <a class="nav-item active" href="appliances.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Appliances</a>
-    <a class="nav-item" href="account.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>My Account</a>
-    <a class="nav-item" href="settings.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</a>
-    <a class="nav-item" href="faq.html"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-  </nav>
-  <main class="main">
-    <div class="view-title">Appliance breakdown</div>
-    <p style="font-size:13px;color:#666;margin-bottom:18px;">Estimated costs based on Origin Energy rates (30.8¢/kWh) and average Australian household usage data.</p>
-    <div class="app-detail-grid">
-      <div class="app-detail-card"><div class="app-detail-emoji">❄️</div><div class="app-detail-name">Air conditioning</div><div class="app-detail-row"><span>Cost per hour</span><span>46.2¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>6h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$2.77</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$83.16</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill highest" style="width:100%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Set to 24–26°C to cut costs by up to 30%.</div></div>
-      <div class="app-detail-card"><div class="app-detail-emoji">🚿</div><div class="app-detail-name">Hot water system</div><div class="app-detail-row"><span>Cost per hour</span><span>110.9¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>2h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$2.22</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$66.53</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill warning" style="width:80%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Shorten showers by 2 minutes to save ~$8/month.</div></div>
-      <div class="app-detail-card"><div class="app-detail-emoji">🧊</div><div class="app-detail-name">Fridge / freezer</div><div class="app-detail-row"><span>Cost per hour</span><span>4.6¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>24h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$1.11</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$33.26</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:40%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Keep coils clean and door seals tight.</div></div>
-      <div class="app-detail-card"><div class="app-detail-emoji">🌀</div><div class="app-detail-name">Dryer</div><div class="app-detail-row"><span>Cost per hour</span><span>138.6¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>0.5h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.69</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$20.79</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:25%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Air dry when possible — dryers use up to 4.5 kWh per load.</div></div>
-      <div class="app-detail-card"><div class="app-detail-emoji">🍽️</div><div class="app-detail-name">Dishwasher</div><div class="app-detail-row"><span>Cost per hour</span><span>43.1¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>0.5h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.22</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$6.47</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:8%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Run only when full and use eco mode.</div></div>
-      <div class="app-detail-card"><div class="app-detail-emoji">📺</div><div class="app-detail-name">TV / entertainment</div><div class="app-detail-row"><span>Cost per hour</span><span>6.2¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>3h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.19</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$5.54</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:7%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Turn off at the wall — standby power adds up.</div></div>
-      <div class="app-detail-card"><div class="app-detail-emoji">🫧</div><div class="app-detail-name">Washing machine</div><div class="app-detail-row"><span>Cost per hour</span><span>15.4¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>1h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.15</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$4.62</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:6%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Wash on cold — saves up to $80/year.</div></div>
-      <div class="app-detail-card"><div class="app-detail-emoji">💡</div><div class="app-detail-name">Lighting</div><div class="app-detail-row"><span>Cost per hour</span><span>1.8¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>6h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.11</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$3.33</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:4%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Switch to LED — uses 75% less energy.</div></div>
-    </div>
-    <div class="panel" style="max-width:460px;margin-top:4px;">
-      <div class="panel-title">Monthly cost summary</div>
-      <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Air conditioning</span><span style="font-family:var(--font-data);color:var(--primary-green);">$83.16</span></div>
-      <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Hot water system</span><span style="font-family:var(--font-data);color:var(--primary-green);">$66.53</span></div>
-      <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Fridge / freezer</span><span style="font-family:var(--font-data);color:var(--primary-green);">$33.26</span></div>
-      <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Dryer</span><span style="font-family:var(--font-data);color:var(--primary-green);">$20.79</span></div>
-      <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Dishwasher</span><span style="font-family:var(--font-data);color:var(--primary-green);">$6.47</span></div>
-      <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">TV / entertainment</span><span style="font-family:var(--font-data);color:var(--primary-green);">$5.54</span></div>
-      <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Washing machine</span><span style="font-family:var(--font-data);color:var(--primary-green);">$4.62</span></div>
-      <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Lighting</span><span style="font-family:var(--font-data);color:var(--primary-green);">$3.33</span></div>
-      <div style="border-top:2px solid var(--primary-green);margin-top:8px;padding-top:10px;display:flex;justify-content:space-between;align-items:center;">
-        <span style="font-family:var(--font-heading);font-weight:700;font-size:14px;color:var(--primary-green);">Estimated total</span>
-        <span style="font-family:var(--font-data);font-size:20px;color:var(--primary-green);font-weight:700;">$223.70</span>
-      </div>
-      <div style="font-size:11px;color:#888;margin-top:6px;">Origin Energy 30.8¢/kWh · Queensland 2024</div>
-    </div>
-  </main>
-</div></div>
+  <input type="checkbox" id="sidebar-toggle" />
+  <div class="page-wrapper">
+    <header class="site-header"></header>
+    <div class="page-content">
+    <div id="app"><div class="shell">
+      <nav class="sidebar">
+        <div class="sidebar-logo">
+          <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
+          <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
+        </div>
+        <label class="sidebar-toggle-btn" for="sidebar-toggle">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </label>
+        <a class="nav-item" href="dashboard.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span class="nav-label">Dashboard</span>
+        </a>
+        <a class="nav-item active" href="appliances.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span class="nav-label">Appliances</span>
+        </a>
+        <a class="nav-item" href="account.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="nav-label">Account</span>
+        </a>
+        <a class="nav-item" href="settings.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          <span class="nav-label">Settings</span>
+        </a>
+        <a class="nav-item" href="faq.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span class="nav-label">FAQ</span>
+        </a>
+      </nav>
+        <main class="main">
+          <div class="view-title">Appliance breakdown</div>
+          <p style="font-size:13px;color:#666;margin-bottom:18px;">Estimated costs based on Origin Energy rates (30.8¢/kWh) and average Australian household usage data.</p>
+          <div class="app-detail-grid">
+            <div class="app-detail-card"><div class="app-detail-emoji">❄️</div><div class="app-detail-name">Air conditioning</div><div class="app-detail-row"><span>Cost per hour</span><span>46.2¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>6h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$2.77</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$83.16</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill highest" style="width:100%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Set to 24–26°C to cut costs by up to 30%.</div></div>
+            <div class="app-detail-card"><div class="app-detail-emoji">🚿</div><div class="app-detail-name">Hot water system</div><div class="app-detail-row"><span>Cost per hour</span><span>110.9¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>2h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$2.22</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$66.53</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill warning" style="width:80%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Shorten showers by 2 minutes to save ~$8/month.</div></div>
+            <div class="app-detail-card"><div class="app-detail-emoji">🧊</div><div class="app-detail-name">Fridge / freezer</div><div class="app-detail-row"><span>Cost per hour</span><span>4.6¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>24h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$1.11</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$33.26</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:40%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Keep coils clean and door seals tight.</div></div>
+            <div class="app-detail-card"><div class="app-detail-emoji">🌀</div><div class="app-detail-name">Dryer</div><div class="app-detail-row"><span>Cost per hour</span><span>138.6¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>0.5h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.69</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$20.79</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:25%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Air dry when possible — dryers use up to 4.5 kWh per load.</div></div>
+            <div class="app-detail-card"><div class="app-detail-emoji">🍽️</div><div class="app-detail-name">Dishwasher</div><div class="app-detail-row"><span>Cost per hour</span><span>43.1¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>0.5h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.22</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$6.47</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:8%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Run only when full and use eco mode.</div></div>
+            <div class="app-detail-card"><div class="app-detail-emoji">📺</div><div class="app-detail-name">TV / entertainment</div><div class="app-detail-row"><span>Cost per hour</span><span>6.2¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>3h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.19</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$5.54</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:7%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Turn off at the wall — standby power adds up.</div></div>
+            <div class="app-detail-card"><div class="app-detail-emoji">🫧</div><div class="app-detail-name">Washing machine</div><div class="app-detail-row"><span>Cost per hour</span><span>15.4¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>1h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.15</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$4.62</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:6%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Wash on cold — saves up to $80/year.</div></div>
+            <div class="app-detail-card"><div class="app-detail-emoji">💡</div><div class="app-detail-name">Lighting</div><div class="app-detail-row"><span>Cost per hour</span><span>1.8¢</span></div><div class="app-detail-row"><span>Avg hrs / day</span><span>6h</span></div><div class="app-detail-row"><span>Est. daily cost</span><span>$0.11</span></div><div class="app-detail-row"><span>Est. monthly cost</span><span>$3.33</span></div><div class="cost-bar-wrap"><div style="font-size:10px;color:#888;">Share of bill</div><div class="cost-bar-track"><div class="cost-bar-fill" style="width:4%"></div></div></div><div style="font-size:11px;color:#666;margin-top:8px;line-height:1.4;">Switch to LED — uses 75% less energy.</div></div>
+          </div>
+          <div class="panel" style="max-width:460px;margin-top:4px;">
+            <div class="panel-title">Monthly cost summary</div>
+            <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Air conditioning</span><span style="font-family:var(--font-data);color:var(--primary-green);">$83.16</span></div>
+            <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Hot water system</span><span style="font-family:var(--font-data);color:var(--primary-green);">$66.53</span></div>
+            <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Fridge / freezer</span><span style="font-family:var(--font-data);color:var(--primary-green);">$33.26</span></div>
+            <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Dryer</span><span style="font-family:var(--font-data);color:var(--primary-green);">$20.79</span></div>
+            <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Dishwasher</span><span style="font-family:var(--font-data);color:var(--primary-green);">$6.47</span></div>
+            <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">TV / entertainment</span><span style="font-family:var(--font-data);color:var(--primary-green);">$5.54</span></div>
+            <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Washing machine</span><span style="font-family:var(--font-data);color:var(--primary-green);">$4.62</span></div>
+            <div class="app-detail-row" style="padding:6px 0;"><span style="color:#444;font-size:13px;">Lighting</span><span style="font-family:var(--font-data);color:var(--primary-green);">$3.33</span></div>
+            <div style="border-top:2px solid var(--primary-green);margin-top:8px;padding-top:10px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-family:var(--font-heading);font-weight:700;font-size:14px;color:var(--primary-green);">Estimated total</span>
+              <span style="font-family:var(--font-data);font-size:20px;color:var(--primary-green);font-weight:700;">$223.70</span>
+            </div>
+            <div style="font-size:11px;color:#888;margin-top:6px;">Origin Energy 30.8¢/kWh · Queensland 2024</div>
+          </div>
+        </main>
+    </div></div>
+    </div><!-- end .page-content -->
+    <footer class="site-footer">
+      <a href="faq.html">Help &amp; FAQ</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </footer>
+  </div><!-- end .page-wrapper -->
 </body>
 </html>
