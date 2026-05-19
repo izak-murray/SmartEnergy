@@ -752,9 +752,28 @@ input::placeholder {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 18px;
-  max-width: 440px;
+  padding: 14px 16px;
+  break-inside: avoid;
+}
+
+.settings-grid {
+  columns: 3;
+  column-gap: 14px;
+  max-width: 1100px;
+}
+
+.settings-grid > .settings-card {
   margin-bottom: 14px;
+  display: inline-block;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .settings-grid { columns: 2; }
+}
+
+@media (max-width: 600px) {
+  .settings-grid { columns: 1; }
 }
 
 .section-label {
@@ -823,6 +842,48 @@ input::placeholder {
 }
 
 .toggle input:checked + .tgl-track::before { transform: translateX(16px); }
+
+/* ── Settings page: link rows ──────────────────────────────── */
+.link-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  text-decoration: none;
+  color: inherit;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.link-row:last-child { border: none; }
+.link-row:hover { background: var(--light-green); }
+
+.link-chev {
+  font-size: 18px;
+  color: var(--text-gray);
+  font-family: var(--font-body);
+}
+
+/* ── Settings page: text-size button group ─────────────────── */
+.size-group {
+  display: flex;
+  gap: 4px;
+}
+
+.size-group .btn-sm {
+  min-width: 32px;
+  min-height: 32px;
+  padding: 4px 8px;
+  font-family: var(--font-body);
+}
+
+.size-group .btn-sm:nth-child(1) { font-size: 11px; }
+.size-group .btn-sm:nth-child(2) { font-size: 14px; }
+.size-group .btn-sm:nth-child(3) { font-size: 17px; }
+
+/* ── Settings page: WCAG touch target fix ──────────────────── */
+.toggle-row { min-height: 44px; }
 
 /* ── FAQ page ──────────────────────────────────────────────── */
 .faq-list {
