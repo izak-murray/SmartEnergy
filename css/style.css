@@ -1262,8 +1262,11 @@ body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below 
   justify-content: center;
   gap: 12px;
   flex-shrink: 0;
-  position: relative;
-  z-index: 20;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
 }
 
 .site-footer a {
@@ -1279,7 +1282,16 @@ body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below 
   flex: 1;
   min-height: 0;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
+
+#app {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+} 
 
 
 @media (max-width: 640px) {
@@ -1292,8 +1304,17 @@ body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below 
     overflow-x: auto;
   }
 
-  .sidebar-logo {
+  .sidebar-toggle-btn {
     display: none;
+  }
+
+  .sidebar-logo {
+    display: flex;
+    width: auto;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    padding: 0 6px;
+    border-right: 1px solid rgba(255,255,255,0.15);
   }
 
   .nav-item {
@@ -1310,9 +1331,19 @@ body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below 
     grid-template-columns: 1fr 1fr;
   }
 
+  .sidebar-logo .nav-label {
+    display: none;
+  }
+
   .nav-item.active {
     border-left-color: transparent;
     border-bottom-color: var(--secondary-green);
+  }
+
+
+  .sidebar-logo .logo-icon-collapsed {
+    display: block;
+    height: 26px;
   }
 
   body.app-body {
@@ -1332,6 +1363,7 @@ body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below 
     min-width: 0;
     margin-left: 0;
     overflow-y: auto;
+    padding-bottom: 24px;
   }
 
   body:has(#sidebar-toggle:checked) .sidebar {
@@ -1341,5 +1373,31 @@ body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below 
   body:has(#sidebar-toggle:checked) .main {
     margin-left: 0;
   }
+
+  .site-header {
+    border-radius: 0;
+  }
+
+  .site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 30;
+  }
+
+  .page-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #app {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+
+
 
 }
