@@ -962,6 +962,57 @@ input::placeholder {
   margin-bottom: 12px;
 }
 
+
+/* ── Settings Page: contrast adjustments ────────────────────── Kristina */
+
+/* ── High contrast mode (driven by #high-contrast checkbox) ── */
+body:has(#high-contrast:checked) {
+  --text-gray:       #1a1a1a;
+  --border:          #000000;
+  --primary-green:   #0A2A0E;
+  --secondary-green: #2D8A5A;
+  --light-green:     #D4EBDE;
+}
+
+/* Text that uses hardcoded greys, not variables */
+body:has(#high-contrast:checked) .tgl-sub,
+body:has(#high-contrast:checked) .stat-sub,
+body:has(#high-contrast:checked) .faq-body,
+body:has(#high-contrast:checked) .alert-body,
+body:has(#high-contrast:checked) .signup-link {
+  color: #1a1a1a;
+  font-weight: var(--fw-500);
+}
+
+/* Row dividers — currently #f0f0f0, basically invisible */
+body:has(#high-contrast:checked) .toggle-row,
+body:has(#high-contrast:checked) .link-row,
+body:has(#high-contrast:checked) .acct-row,
+body:has(#high-contrast:checked) .app-detail-row {
+  border-bottom-color: #1a1a1a;
+}
+
+/* Beef up card borders */
+body:has(#high-contrast:checked) .settings-card,
+body:has(#high-contrast:checked) .account-card,
+body:has(#high-contrast:checked) .panel,
+body:has(#high-contrast:checked) .stat-card,
+body:has(#high-contrast:checked) .app-detail-card,
+body:has(#high-contrast:checked) details.faq-item {
+  border-width: 2px;
+  border-color: #000;
+}
+
+/* Sidebar inactive nav items are rgba(...,0.55) — too faint */
+body:has(#high-contrast:checked) .nav-item {
+  color: rgba(247,246,242,0.95);
+}
+
+/* Toggle "off" track is #ccc — bump it */
+body:has(#high-contrast:checked) .tgl-track {
+  background: #555;
+}
+
 /* ── FAQ page ──────────────────────────────────────────────── */
 .faq-list {
   display: flex;

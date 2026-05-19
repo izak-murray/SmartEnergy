@@ -1,0 +1,167 @@
+{
+  "export_metadata": {
+    "exported_at": "2026-05-19T14:32:08+10:00",
+    "format_version": "1.0",
+    "schema": "https://smartenergy.example/schema/user-export/v1",
+    "notes": "This file contains all personal data Smart Energy holds for your account. To delete your account or request changes, visit Settings → Data & Privacy."
+  },
+
+  "account": {
+    "user_id": "u_8f2c4a91e6",
+    "display_name": "Elise Monroe",
+    "initials": "EM",
+    "email": "elise.monroe@example.com",
+    "phone": "+61 4•• ••• 8821",
+    "date_of_birth": "1995-03-14",
+    "account_created": "2025-11-04T09:12:44+10:00",
+    "last_login": "2026-05-19T07:48:12+10:00",
+    "email_verified": true,
+    "marketing_consent": false
+  },
+
+  "household": {
+    "address_line": "Spring Hill, QLD 4000",
+    "postcode": "4000",
+    "suburb": "Spring Hill",
+    "state": "QLD",
+    "dwelling_type": "apartment",
+    "tenancy": "renter",
+    "occupants": 3,
+    "energy_retailer": "Origin Energy",
+    "tariff_type": "Time of use",
+    "off_peak_window": "22:00–07:00",
+    "solar_panels": false,
+    "battery_storage": false,
+    "energy_goal": "Reduce my bills"
+  },
+
+  "appliances": [
+    { "id": "air-conditioning", "label": "Air conditioning", "emoji": "❄️", "added": "2025-11-04" },
+    { "id": "fridge-freezer",   "label": "Fridge / freezer",   "emoji": "🧊", "added": "2025-11-04" },
+    { "id": "washing-machine",  "label": "Washing machine",    "emoji": "🫧", "added": "2025-11-04" },
+    { "id": "hot-water-system", "label": "Hot water system",   "emoji": "🚿", "added": "2025-11-04" },
+    { "id": "tv-entertainment", "label": "TV / entertainment", "emoji": "📺", "added": "2025-11-04" },
+    { "id": "lighting",         "label": "Lighting",           "emoji": "💡", "added": "2025-11-04" }
+  ],
+
+  "preferences": {
+    "notifications": {
+      "pause_all": false,
+      "usage_spike_alerts": true,
+      "weekly_summary": true,
+      "new_tip_suggestions": false,
+      "off_peak_reminders": true
+    },
+    "display": {
+      "show_costs_in_dollars": true,
+      "show_carbon_footprint": false,
+      "text_size": "medium",
+      "high_contrast_mode": false
+    },
+    "privacy": {
+      "anonymous_usage_analytics": true,
+      "share_with_retailer": false,
+      "third_party_research": false
+    }
+  },
+
+  "bill_splitting": {
+    "enabled": true,
+    "method": "by_usage",
+    "flatmates": [
+      { "name": "Elise Monroe",  "share_pct": 31, "role": "owner",  "invited": "2025-11-04" },
+      { "name": "Tomás Reyes",   "share_pct": 36, "role": "member", "invited": "2025-11-06" },
+      { "name": "Hannah Cheng",  "share_pct": 33, "role": "member", "invited": "2025-11-06" }
+    ]
+  },
+
+  "connected_services": {
+    "smart_meter":    { "connected": false, "provider": null,           "last_sync": null },
+    "solar_inverter": { "connected": false, "provider": null,           "last_sync": null },
+    "energy_retailer":{ "connected": true,  "provider": "Origin Energy","last_sync": "2026-05-18T23:00:00+10:00" }
+  },
+
+  "usage_history": {
+    "unit": "kWh",
+    "currency": "AUD",
+    "monthly": [
+      { "month": "2025-12", "kwh": 412.6, "cost_aud": 142.18, "avg_similar_homes_kwh": 470 },
+      { "month": "2026-01", "kwh": 489.3, "cost_aud": 168.62, "avg_similar_homes_kwh": 520 },
+      { "month": "2026-02", "kwh": 458.1, "cost_aud": 157.87, "avg_similar_homes_kwh": 495 },
+      { "month": "2026-03", "kwh": 386.4, "cost_aud": 133.16, "avg_similar_homes_kwh": 430 },
+      { "month": "2026-04", "kwh": 341.9, "cost_aud": 117.82, "avg_similar_homes_kwh": 388 },
+      { "month": "2026-05", "kwh": 198.7, "cost_aud":  68.46, "avg_similar_homes_kwh": 215, "partial": true }
+    ],
+    "appliance_breakdown_last_30d_pct": {
+      "air-conditioning": 38,
+      "hot-water-system": 24,
+      "fridge-freezer":   17,
+      "lighting":         11,
+      "washing-machine":   6,
+      "tv-entertainment":  4
+    },
+    "energy_score_history": [
+      { "month": "2025-12", "score": 64 },
+      { "month": "2026-01", "score": 61 },
+      { "month": "2026-02", "score": 67 },
+      { "month": "2026-03", "score": 72 },
+      { "month": "2026-04", "score": 76 },
+      { "month": "2026-05", "score": 78 }
+    ]
+  },
+
+  "tips": {
+    "completed": [
+      { "id": "tip_led_swap",      "title": "Switch to LED bulbs",       "completed_at": "2026-01-22" },
+      { "id": "tip_cold_wash",     "title": "Wash on cold cycle",        "completed_at": "2026-02-09" },
+      { "id": "tip_shorter_shower","title": "Shorten showers by 2 mins", "completed_at": "2026-03-15" }
+    ],
+    "dismissed": [
+      { "id": "tip_solar_quote", "title": "Get a solar quote", "dismissed_at": "2025-12-11", "reason": "renter" }
+    ],
+    "active": [
+      { "id": "tip_aircon_temp", "title": "Set A/C to 24–26°C" },
+      { "id": "tip_standby",     "title": "Switch off standby appliances overnight" }
+    ]
+  },
+
+  "alerts_history": [
+    {
+      "id": "alrt_20260118_aircon",
+      "type": "usage_spike",
+      "triggered_at": "2026-01-18T15:42:00+10:00",
+      "title": "Unusual air-con usage",
+      "detail": "A/C ran 8.5 hrs yesterday vs your 3.2 hr average. Heatwave (34°C) likely cause.",
+      "dismissed": true,
+      "user_note": null
+    },
+    {
+      "id": "alrt_20260403_offpeak",
+      "type": "off_peak_reminder",
+      "triggered_at": "2026-04-03T22:00:00+10:00",
+      "title": "Off-peak rates active",
+      "detail": "Cheaper rates until 7am — good time for the dishwasher or washing machine.",
+      "dismissed": true,
+      "user_note": null
+    },
+    {
+      "id": "alrt_20260511_weekly",
+      "type": "weekly_summary",
+      "triggered_at": "2026-05-11T08:00:00+10:00",
+      "title": "You used 12% less than last week",
+      "detail": "Nice work — your score is up 2 points.",
+      "dismissed": false,
+      "user_note": null
+    }
+  ],
+
+  "support_history": [
+    {
+      "ticket_id": "supp_4471",
+      "opened":  "2026-02-04",
+      "closed":  "2026-02-05",
+      "subject": "How does bill splitting calculate shares?",
+      "status":  "resolved"
+    }
+  ]
+}
