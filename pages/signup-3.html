@@ -10,12 +10,13 @@
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 </head>  
 
-<body>
+<body class="auth-body">
+    <header class="site-header"></header>
     <section class="auth-section">
         <div class="auth-card wide">
             <form action="dashboard.html" method="post">
                 <div class="logo">
-                    <img src="images/logo.png" alt="Smart Energy logo">
+                    <img src="../images/logo.png" alt="Smart Energy logo">
                     <p>Smart Energy</p>
                 </div>
                 <div class="step-indicator">
@@ -50,11 +51,17 @@
                     <input class="app-cb" type="checkbox" id="a8" name="appliances" value="lighting">
                     <label class="appliance-toggle" for="a8"><i class="ph ph-lightbulb"></i>Lighting</label>
                 </div>
-                <div class="formrow">
-                    <a class="btn-primary" href="dashboard.html">Build my dashboard →</a>
+                <div class="formrow two-button-row">
+                    <a class="btn-secondary" href="signup-2.html">Previous</a>
+                    <a class="btn-primary" href="dashboard.html">Build my dashboard</a>
                 </div>
             </form>
         </div>
     </section>
+    <footer class="site-footer">
+        <a href="faq.html">Help &amp; FAQ</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+    </footer>
 </body>
 </html>
