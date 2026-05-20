@@ -836,14 +836,6 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   width: 100%;
 }
 
-@media (max-width: 900px) {
-  .settings-grid { columns: 2; }
-}
-
-@media (max-width: 600px) {
-  .settings-grid { columns: 1; }
-}
-
 .section-label {
   font-size: 12px;
   font-weight: var(--fw-500);
@@ -1023,13 +1015,20 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   color: var(--text-black);
 }
 
+
 .success-gif {
   width: 100%;
   max-width: 280px;
   border-radius: 8px;
   margin-bottom: 12px;
+  height: 250px;
 }
 
+#password-success:target .success-gif {
+  background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjNnejQ4Y29idmVxbGF2eDU5bGFiYjN0YTJvdmdyMWN5Ym02OGhvNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IaWa1S6rMWzzt0Tt07/giphy.gif');
+  background-size: cover;
+  background-position: center;
+}
 
 /* ── Settings Page: contrast adjustments ────────────────────── */
 
@@ -1137,11 +1136,16 @@ details.faq-item[open] summary::after { transform: rotate(-135deg); }
 .modal-overlay {
   display: none;
   position: fixed;
-  inset: 0;
+  top: 0;         
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(0,0,0,0.45);
-  z-index: 200;
+  z-index: 999;     
   align-items: center;
   justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 .modal-overlay:target { display: flex; }
@@ -1152,6 +1156,9 @@ details.faq-item[open] summary::after { transform: rotate(-135deg); }
   padding: 24px;
   max-width: 340px;
   width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .modal h3 {
@@ -1302,6 +1309,20 @@ body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below 
   min-height: 0;
 } 
 
+@media (max-width: 900px) {
+  .settings-grid { columns: 2; }
+}
+
+@media (max-width: 600px) {
+  .settings-grid { columns: 1; }
+}
+
+@media (min-height: 500px) {
+  .modal-overlay {
+    /* align-items: center; */
+    padding: 16px;
+  }
+}
 
 @media (max-width: 640px) {
   .sidebar {
@@ -1312,6 +1333,14 @@ body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below 
     padding: 0;
     overflow-x: auto;
   }
+
+   .modal-overlay {
+    justify-content: flex-start;
+    padding-left: 16px;
+    padding-right: 16px;
+    
+  }
+  
 
   .sidebar-toggle-btn {
     display: none;
