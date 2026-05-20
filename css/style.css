@@ -1311,14 +1311,14 @@ details.faq-item[open] summary::after { transform: rotate(-135deg); }
   gap: 8px;
   text-align: center;
 }
-
+/* --- dont think we use this
 .bolt {
   width: 18px;
   height: 18px;
   min-width: 18px;
   background: var(--accent-orange);
   clip-path: polygon(60% 0%, 40% 45%, 70% 45%, 35% 100%, 55% 58%, 28% 58%);
-}
+}*/
 
 /* ── Text-size scaling via :has() ──────────────────────────── */
 /* Default = medium (no override needed) */
