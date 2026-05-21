@@ -897,6 +897,28 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   border-top: 1px solid #f0f0f0;
 }
 
+.btn-sm {
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-sm.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+}
+
+.btn-sm.primary {
+    background-color: var(--primary-green);
+    color: var(--bg-main);
+    border: 2px solid var(--primary-green);
+}
+
 /* this fixes the appliance grid to 2 rows of 4 */
 .account-appliance-summary-grid {
   grid-template-columns: repeat(4, 1fr);
