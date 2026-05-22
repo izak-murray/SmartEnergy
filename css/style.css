@@ -230,6 +230,27 @@ input::placeholder {
   text-decoration: underline;
 }
 
+/* Remember password & forgot password */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+.forgot-password {
+    font-size: 0.7rem;
+    text-decoration: none;
+}
+
 /* Step indicator */
 .step-indicator {
   display: flex;
