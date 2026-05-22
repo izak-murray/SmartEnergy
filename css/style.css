@@ -46,7 +46,7 @@ body {
 /* App shell pages override the green background */
 body.app-body {
   /*background-color: var(--bg-main);*/    /* delete this line all pages are same bg color*/
-  overflow: hidden;
+  overflow-y: auto;
 }
 /* #endregion */
 /* ═══════════════════════════════════════════════════════════
@@ -795,62 +795,158 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
 }
 
 /* ── Appliance detail page ─────────────────────────────────── */
+
+.appliance-description {
+  font-size: 13px;
+  color: var(--text-gray);
+  margin-bottom: 18px;
+  max-width: 700px;
+  line-height: 1.5;
+}
+
 .app-detail-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
 }
 
 .app-detail-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 14px;
+  padding: 18px;
 }
 
-.app-detail-emoji {
-  font-size: 28px;
+.app-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
   margin-bottom: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.app-emoji {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--light-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.app-emoji i {
+  font-size: 22px;
+  color: var(--primary-green);
 }
 
 .app-detail-name {
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: var(--fw-700);
   color: var(--primary-green);
-  margin-bottom: 6px;
 }
 
 .app-detail-row {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
-  padding: 4px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #f0f0f0;
+  font-size: 13px;
   font-family: var(--font-body);
 }
 
-.app-detail-row:last-child { border: none; }
-.app-detail-row span:first-child { color: var(--text-gray); }
+.app-detail-row:last-child {
+  border-bottom: none;
+}
+
+.app-detail-row span:first-child {
+  color: var(--text-gray);
+}
+
 .app-detail-row span:last-child {
   font-family: var(--font-data);
   font-weight: var(--fw-500);
   color: var(--primary-green);
 }
 
-.cost-bar-wrap { margin-top: 8px; }
+.cost-bar-wrap {
+  margin-top: 14px;
+}
+
+.cost-label {
+  font-size: 11px;
+  color: var(--text-gray);
+  margin-bottom: 5px;
+}
 
 .cost-bar-track {
   height: 6px;
   background: var(--light-green);
-  border-radius: 3px;
+  border-radius: 999px;
   overflow: hidden;
-  margin-top: 4px;
 }
 
-.cost-bar-fill         { height: 100%; border-radius: 3px; background: var(--secondary-green); }
-.cost-bar-fill.highest { background: var(--primary-green); }
-.cost-bar-fill.warning { background: var(--accent-orange); }
+.cost-bar-fill {
+  height: 100%;
+  background: var(--secondary-green);
+  border-radius: 999px;
+}
+
+.cost-bar-fill.highest {
+  background: var(--primary-green);
+}
+
+.cost-bar-fill.warning {
+  background: var(--accent-orange);
+}
+
+.appliance-tip {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+.appliance-summary-card {
+  max-width: 500px;
+  margin-bottom:40px;
+}
+
+.appliance-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 2px solid var(--primary-green);
+}
+
+.appliance-total span:first-child {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-700);
+  color: var(--primary-green);
+}
+
+.appliance-total span:last-child {
+  font-family: var(--font-data);
+  font-size: 22px;
+  font-weight: var(--fw-700);
+  color: var(--primary-green);
+}
+
+.appliance-footer {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-gray);
+}
+
+.nav-item i {
+  font-size: 18px;
+}
 
 /* ── Account page ──────────────────────────────────────────── */
 .account-card {
@@ -915,7 +1011,6 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   gap: 8px;
   margin-top: 16px;
   padding-top: 14px;
-  border-top: 1px solid #f0f0f0;
 }
 
 .btn-sm {
@@ -1405,12 +1500,12 @@ html:has(#size-l:checked) .main .section-label { font-size: 14px; }
 
 html { height: 100%; }
 body { height: 100%; }
-body.app-body { overflow: hidden; }  /* desktop only — mobile overrides below */
+body.app-body { overflow-y: auto; }  /* desktop only — mobile overrides below */
 
 .page-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .site-header {
