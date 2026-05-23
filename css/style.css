@@ -188,6 +188,7 @@ input::placeholder {
   background-color: #265a2e;
 }
 
+/* Secondary button / link */
 .btn-secondary {
   display: block;
   width: 100%;
