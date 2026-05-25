@@ -798,18 +798,16 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
 /* ── Appliance detail page ─────────────────────────────────── */
 
 .appliance-description {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-gray);
   margin-bottom: 18px;
-  max-width: 700px;
-  line-height: 1.5;
 }
 
 .app-detail-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .app-detail-card {
@@ -829,14 +827,13 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
 }
 
 .app-emoji {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: var(--light-green);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
 
 .app-emoji i {
@@ -846,7 +843,7 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
 
 .app-detail-name {
   font-family: var(--font-heading);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: var(--fw-700);
   color: var(--primary-green);
 }
@@ -856,16 +853,16 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #f0f0f0;
-  font-size: 13px;
+  font-size: 12px;
   font-family: var(--font-body);
 }
 
-.app-detail-row:last-child {
-  border-bottom: none;
+.app-detail-row:last-child { 
+  border-bottom: none; 
 }
 
-.app-detail-row span:first-child {
-  color: var(--text-gray);
+.app-detail-row span:first-child { 
+  color: var(--text-gray); 
 }
 
 .app-detail-row span:last-child {
@@ -874,12 +871,12 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   color: var(--primary-green);
 }
 
-.cost-bar-wrap {
-  margin-top: 14px;
+.cost-bar-wrap { 
+  margin-top: 14px; 
 }
 
 .cost-label {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-gray);
   margin-bottom: 5px;
 }
@@ -891,30 +888,30 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   overflow: hidden;
 }
 
-.cost-bar-fill {
-  height: 100%;
-  background: var(--secondary-green);
-  border-radius: 999px;
+.cost-bar-fill { 
+  height: 100%; 
+  background: 
+  var(--secondary-green); 
+  border-radius: 999px; 
 }
 
-.cost-bar-fill.highest {
-  background: var(--primary-green);
+.cost-bar-fill.highest { 
+  background: var(--primary-green); 
 }
 
-.cost-bar-fill.warning {
-  background: var(--accent-orange);
+.cost-bar-fill.warning { 
+  background: var(--accent-orange); 
 }
 
 .appliance-tip {
   margin-top: 12px;
   font-size: 12px;
   color: var(--text-gray);
-  line-height: 1.5;
 }
 
 .appliance-summary-card {
   max-width: 500px;
-  margin-bottom:40px;
+  margin-bottom: 40px;
 }
 
 .appliance-total {
@@ -945,17 +942,35 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   color: var(--text-gray);
 }
 
-.nav-item i {
-  font-size: 18px;
+@media (max-width: 1100px) {
+  .app-detail-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .app-detail-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .appliance-summary-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .app-detail-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ── Account page ──────────────────────────────────────────── */
+
 .account-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 24px;
-  max-width: 630px;
+  max-width: 725px;
 }
 
 .account-avatar {
@@ -972,19 +987,6 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   flex-shrink: 0;
 }
 
-.account-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  padding: 10px 0;
-  border-bottom: 1px solid #f0f0f0;
-  font-family: var(--font-body);
-}
-
-.account-row:last-child { border: none; }
-.account-row span:first-child { color: var(--text-gray); }
-
-/* these replace the inline styles that were on the avatar header */
 .account-header {
   display: flex;
   align-items: center;
@@ -996,50 +998,69 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
 
 .account-name {
   font-family: var(--font-heading);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: var(--fw-700);
   color: var(--primary-green);
 }
 
 .account-email {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-gray);
 }
 
-/* these replace the inline styles on the buttons row */
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-family: var(--font-body);
+}
+
+.account-row:last-child { 
+  border: none; 
+}
+
+.account-row span:first-child { 
+  color: var(--text-gray); 
+}
+
 .account-actions {
   display: flex;
   gap: 8px;
   margin-top: 16px;
   padding-top: 14px;
 }
-
-.btn-sm {
-    padding: 8px 18px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    display: inline-block;
+.account-btn {
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--primary-green);
+  background: transparent;
+  color: var(--primary-green);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: var(--fw-500);
+  text-decoration: none;
+  display: inline-block;
 }
 
-.btn-sm.secondary {
-    background-color: transparent;
-    border: 2px solid var(--primary-green);
-    color: var(--primary-green);
+.account-btn:hover {
+  background: rgba(27, 68, 32, 0.08);
 }
 
-.btn-sm.primary {
-    background-color: var(--primary-green);
-    color: var(--bg-main);
-    border: 2px solid var(--primary-green);
+.account-btn.acct-btn-primary {
+  background: var(--primary-green);
+  color: var(--bg-main);
 }
 
-/* this fixes the appliance grid to 2 rows of 4 */
+.account-btn.acct-btn-primary:hover {
+  background: #265a2e;
+}
+
 .account-appliance-summary-grid {
   grid-template-columns: repeat(4, 1fr);
-  max-width: 400px;
+  max-width: 630px;
 }
 
 .account-appliance-summary-grid .account-app-detail-card {
@@ -1058,13 +1079,54 @@ body:has(#sidebar-toggle:checked) .logo-icon-collapsed {
   cursor: pointer;
 }
 
+.account-app-detail-card .app-emoji {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--light-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .account-app-detail-card .app-emoji i {
-  font-size: 32px;
+  font-size: 24px;
   color: var(--primary-green);
 }
 
-.nav-item i {
-  font-size: 18px;
+@media (max-width: 1100px) {
+  .account-appliance-summary-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 925px) {
+  .account-appliance-summary-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 750px) {
+  .account-appliance-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .account-card {
+    max-width: 100%;
+  }
+  .account-appliance-summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+  .account-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* ── Settings page ─────────────────────────────────────────── */
