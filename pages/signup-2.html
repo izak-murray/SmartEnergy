@@ -14,7 +14,7 @@
     <header class="site-header"></header>
     <section class="auth-section">
         <div class="auth-card">
-            <form action="signup-3.html" method="post">
+            <form action="signup-3.html" method="get"> <!-- real signup would use post, but will continually try to resubmit form if used in this. switched to get.-->
                 <div class="logo">
                     <img src="../images/logo.png" alt="Smart Energy logo">
                     <p>Smart Energy</p>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="formrow two-button-row">
                     <a class="btn-secondary" href="signup-1.html">Previous</a>
-                    <a class="btn-primary" href="signup-3.html">Continue</a>
+                    <button class="btn-primary" type="submit">Continue</button>
                 </div>
             </form>
         </div>
