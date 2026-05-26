@@ -3,440 +3,183 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Energy — Appliances</title>
-
+  <title>Smart Energy — My Account</title>
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
+  <!-- Phosphor icon library for UI icons -->
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 </head>
 
 <body class="app-body">
+
+  <!-- Hidden checkbox used to toggle sidebar collapsed/expanded state via CSS :has() -->
   <input type="checkbox" id="sidebar-toggle" />
 
   <div class="page-wrapper">
     <header class="site-header"></header>
-
     <div class="page-content">
-      <div id="app">
-        <div class="shell">
+      <div id="app"><div class="shell">
 
-          <nav class="sidebar">
-            <div class="sidebar-logo">
-              <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
-              <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
+        <!-- ── SIDEBAR NAV ──────────────────────────────────────
+             Fixed left sidebar. Collapses to icon-only via the
+             sidebar-toggle checkbox and CSS :has() selector.
+        ──────────────────────────────────────────────────────── -->
+        <nav class="sidebar">
+          <div class="sidebar-logo">
+            <!-- Full logo shown when sidebar is expanded -->
+            <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
+            <!-- Icon-only logo shown when sidebar is collapsed -->
+            <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
+          </div>
+
+          <!-- Toggle label controls the sidebar-toggle checkbox -->
+          <label class="sidebar-toggle-btn" for="sidebar-toggle">
+            <i class="ph ph-list"></i>
+          </label>
+
+          <!-- Main navigation links — "active" class highlights current page -->
+          <a class="nav-item" href="dashboard.html">
+            <i class="ph ph-house"></i>
+            <span class="nav-label">Dashboard</span>
+          </a>
+          <a class="nav-item" href="appliances.html">
+            <i class="ph ph-plug"></i>
+            <span class="nav-label">Appliances</span>
+          </a>
+          <a class="nav-item active" href="account.html">
+            <i class="ph ph-user"></i>
+            <span class="nav-label">Account</span>
+          </a>
+          <a class="nav-item" href="settings.html">
+            <i class="ph ph-gear"></i>
+            <span class="nav-label">Settings</span>
+          </a>
+          <a class="nav-item" href="faq.html">
+            <i class="ph ph-question"></i>
+            <span class="nav-label">FAQ</span>
+          </a>
+        </nav>
+
+        <!-- ── MAIN CONTENT ─────────────────────────────────── -->
+        <main class="main">
+
+          <!-- ── PROFILE CARD ─────────────────────────────────
+               Displays the user's account details as populated
+               during the sign-up flow. In a real implementation
+               these values would be fetched from a database.
+          ──────────────────────────────────────────────────── -->
+          <div class="view-title">My Account</div>
+          <div class="account-card">
+
+            <!-- Avatar uses initials as a CSS-styled placeholder -->
+            <div class="account-header">
+              <div class="account-avatar">EM</div>
+              <div>
+                <div class="account-name">Elise Monroe</div>
+                <div class="account-email">elise.monroe@gmail.com</div>
+              </div>
             </div>
 
-            <label class="sidebar-toggle-btn" for="sidebar-toggle">
-              <i class="ph ph-list"></i>
-            </label>
-
-            <a class="nav-item" href="dashboard.html">
-              <i class="ph ph-house"></i>
-              <span class="nav-label">Dashboard</span>
-            </a>
-
-            <a class="nav-item active" href="appliances.html">
-              <i class="ph ph-plug"></i>
-              <span class="nav-label">Appliances</span>
-            </a>
-
-            <a class="nav-item" href="account.html">
-              <i class="ph ph-user"></i>
-              <span class="nav-label">Account</span>
-            </a>
-
-            <a class="nav-item" href="settings.html">
-              <i class="ph ph-gear"></i>
-              <span class="nav-label">Settings</span>
-            </a>
-
-            <a class="nav-item" href="faq.html">
-              <i class="ph ph-question"></i>
-              <span class="nav-label">FAQ</span>
-            </a>
-          </nav>
-
-          <main class="main">
-            <div class="view-title">Appliance breakdown</div>
-
-            <p class="appliance-description">
-              Estimated costs based on Origin Energy rates (30.8¢/kWh) and average Australian household usage data.
-            </p>
-
-            <div class="app-detail-grid">
-
-              <!-- Air Conditioning -->
-              <div class="app-detail-card">
-                <div class="app-detail-header">
-                  <div class="app-emoji">
-                    <i class="ph ph-snowflake"></i>
-                  </div>
-
-                  <div class="app-detail-name">Air conditioning</div>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Cost per hour</span>
-                  <span>46.2¢</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Avg hrs / day</span>
-                  <span>6h</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Est. monthly cost</span>
-                  <span>$83.16</span>
-                </div>
-
-                <div class="cost-bar-wrap">
-                  <div class="cost-label">Share of bill</div>
-
-                  <div class="cost-bar-track">
-                    <div class="cost-bar-fill highest" style="width:37%"></div>
-                  </div>
-                </div>
-
-                <div class="appliance-tip">
-                  Set to 24–26°C to cut costs by up to 30%.
-                </div>
-              </div>
-
-              <!-- Hot Water -->
-              <div class="app-detail-card">
-                <div class="app-detail-header">
-                  <div class="app-emoji">
-                    <i class="ph ph-shower"></i>
-                  </div>
-
-                  <div class="app-detail-name">Hot water system</div>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Cost per hour</span>
-                  <span>110.9¢</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Avg hrs / day</span>
-                  <span>2h</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Est. monthly cost</span>
-                  <span>$66.53</span>
-                </div>
-
-                <div class="cost-bar-wrap">
-                  <div class="cost-label">Share of bill</div>
-
-                  <div class="cost-bar-track">
-                    <div class="cost-bar-fill warning" style="width:30%"></div>
-                  </div>
-                </div>
-
-                <div class="appliance-tip">
-                  Shorten showers by 2 minutes to save ~$8/month.
-                </div>
-              </div>
-
-              <!-- Fridge -->
-              <div class="app-detail-card">
-                <div class="app-detail-header">
-                  <div class="app-emoji">
-                    <i class="ph ph-thermometer"></i>
-                  </div>
-
-                  <div class="app-detail-name">Fridge / freezer</div>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Cost per hour</span>
-                  <span>4.6¢</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Avg hrs / day</span>
-                  <span>24h</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Est. monthly cost</span>
-                  <span>$33.26</span>
-                </div>
-
-                <div class="cost-bar-wrap">
-                  <div class="cost-label">Share of bill</div>
-
-                  <div class="cost-bar-track">
-                    <div class="cost-bar-fill" style="width:14%"></div>
-                  </div>
-                </div>
-
-                <div class="appliance-tip">
-                  Keep coils clean and door seals tight.
-                </div>
-              </div>
-
-              <!-- Washing Machine -->
-              <div class="app-detail-card">
-                <div class="app-detail-header">
-                  <div class="app-emoji">
-                    <i class="ph ph-washing-machine"></i>
-                  </div>
-
-                  <div class="app-detail-name">Washing machine</div>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Cost per hour</span>
-                  <span>15.4¢</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Avg hrs / day</span>
-                  <span>1h</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Est. monthly cost</span>
-                  <span>$4.62</span>
-                </div>
-
-                <div class="cost-bar-wrap">
-                  <div class="cost-label">Share of bill</div>
-
-                  <div class="cost-bar-track">
-                    <div class="cost-bar-fill" style="width:6%"></div>
-                  </div>
-                </div>
-
-                <div class="appliance-tip">
-                  Wash on cold cycles to save energy and water.
-                </div>
-              </div>
-
-              <!-- Lighting -->
-              <div class="app-detail-card">
-                <div class="app-detail-header">
-                  <div class="app-emoji">
-                    <i class="ph ph-lightbulb"></i>
-                  </div>
-
-                  <div class="app-detail-name">Lighting</div>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Cost per hour</span>
-                  <span>1.8¢</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Avg hrs / day</span>
-                  <span>6h</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Est. monthly cost</span>
-                  <span>$3.33</span>
-                </div>
-
-                <div class="cost-bar-wrap">
-                  <div class="cost-label">Share of bill</div>
-
-                  <div class="cost-bar-track">
-                    <div class="cost-bar-fill" style="width:5%"></div>
-                  </div>
-                </div>
-
-                <div class="appliance-tip">
-                  LED bulbs use significantly less energy than halogen bulbs.
-                </div>
-              </div>
-              
-              <!-- TV / Entertainment -->
-              <div class="app-detail-card">
-                <div class="app-detail-header">
-                  <div class="app-emoji">
-                    <i class="ph ph-television"></i>
-                  </div>
-
-                  <div class="app-detail-name">TV / entertainment</div>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Cost per hour</span>
-                  <span>6.2¢</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Avg hrs / day</span>
-                  <span>3h</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Est. monthly cost</span>
-                  <span>$5.54</span>
-                </div>
-
-                <div class="cost-bar-wrap">
-                  <div class="cost-label">Share of bill</div>
-
-                  <div class="cost-bar-track">
-                    <div class="cost-bar-fill" style="width:5%"></div>
-                  </div>
-                </div>
-
-                <div class="appliance-tip">
-                  Turn devices off at the wall to reduce standby power.
-                </div>
-              </div>
-
-              <!-- Dryer -->
-              <div class="app-detail-card">
-                <div class="app-detail-header">
-                  <div class="app-emoji">
-                    <i class="ph ph-fan"></i>
-                  </div>
-
-                  <div class="app-detail-name">Dryer</div>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Cost per hour</span>
-                  <span>138.6¢</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Avg hrs / day</span>
-                  <span>0.5h</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Est. monthly cost</span>
-                  <span>$20.79</span>
-                </div>
-
-                <div class="cost-bar-wrap">
-                  <div class="cost-label">Share of bill</div>
-
-                  <div class="cost-bar-track">
-                    <div class="cost-bar-fill" style="width:10%"></div>
-                  </div>
-                </div>
-
-                <div class="appliance-tip">
-                  Air dry when possible to reduce energy usage.
-                </div>
-              </div>
-
-              <!-- Dishwasher -->
-              <div class="app-detail-card">
-                <div class="app-detail-header">
-                  <div class="app-emoji">
-                    <i class="ph ph-fork-knife"></i>
-                  </div>
-
-                  <div class="app-detail-name">Dishwasher</div>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Cost per hour</span>
-                  <span>43.1¢</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Avg hrs / day</span>
-                  <span>0.5h</span>
-                </div>
-
-                <div class="app-detail-row">
-                  <span>Est. monthly cost</span>
-                  <span>$6.47</span>
-                </div>
-
-                <div class="cost-bar-wrap">
-                  <div class="cost-label">Share of bill</div>
-
-                  <div class="cost-bar-track">
-                    <div class="cost-bar-fill" style="width:5%"></div>
-                  </div>
-                </div>
-
-                <div class="appliance-tip">
-                  Run only when full and use eco mode.
-                </div>
-              </div>
-
+            <!-- Account detail rows — label on left, value on right -->
+            <div class="account-row">
+              <span>Address</span>
+              <span>Spring Hill, QLD 4000</span>
+            </div>
+            <div class="account-row">
+              <span>Household</span>
+              <span>Renter — apartment</span>
+            </div>
+            <div class="account-row">
+              <span>Occupants</span>
+              <span>3 people</span>
+            </div>
+            <div class="account-row">
+              <span>Energy retailer</span>
+              <span>Origin Energy</span>
+            </div>
+            <div class="account-row">
+              <span>Energy goal</span>
+              <span>Reduce my bills</span>
+            </div>
+            <div class="account-row">
+              <span>Solar panels</span>
+              <span>No solar panels</span>
+            </div>
+            <div class="account-row">
+              <span>Bill splitting</span>
+              <span>3-way split enabled</span>
             </div>
 
-            <div class="view-title">Monthly cost summary</div>
-
-            <div class="account-card appliance-summary-card">
-
-              <div class="account-row">
-                <span>Air conditioning</span>
-                <span>$83.16</span>
-              </div>
-
-              <div class="account-row">
-                <span>Hot water system</span>
-                <span>$66.53</span>
-              </div>
-
-              <div class="account-row">
-                <span>Fridge / freezer</span>
-                <span>$33.26</span>
-              </div>
-
-              <div class="account-row">
-                <span>Dryer</span>
-                <span>$20.79</span>
-              </div>
-
-              <div class="account-row">
-                <span>Dishwasher</span>
-                <span>$6.47</span>
-              </div>
-
-              <div class="account-row">
-                <span>TV / entertainment</span>
-                <span>$5.54</span>
-              </div>
-
-              <div class="account-row">
-                <span>Washing machine</span>
-                <span>$4.62</span>
-              </div>
-
-              <div class="account-row">
-                <span>Lighting</span>
-                <span>$3.33</span>
-              </div>
-
-              <div class="appliance-total">
-                <span>Estimated total</span>
-                <span>$223.70</span>
-              </div>
-
-              <div class="appliance-footer">
-                Origin Energy 30.8¢/kWh · Queensland 2024
-              </div>
-
+            <!-- Action buttons — Settings navigates in-app, Sign out returns to login -->
+            <div class="account-actions">
+              <a class="account-btn" href="settings.html">Settings</a>
+              <a class="account-btn account-btn-primary" href="../index.html">Sign out</a>
             </div>
+          </div>
 
-          </main>
+          <!-- ── APPLIANCE SUMMARY GRID ───────────────────────
+               Quick-glance overview of registered appliances.
+               Each card links through to the full appliance
+               breakdown page for detailed cost information.
+               Grid layout defined in CSS as 4 columns / 2 rows.
+          ──────────────────────────────────────────────────── -->
+          <div class="view-title">Your appliances</div>
+          <div class="app-detail-grid account-appliance-summary-grid">
 
-        </div>
-      </div>
-    </div>
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-snowflake"></i></div>
+              <div class="app-detail-name">Air conditioning</div>
+            </a>
+
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-thermometer"></i></div>
+              <div class="app-detail-name">Fridge / freezer</div>
+            </a>
+
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-washing-machine"></i></div>
+              <div class="app-detail-name">Washing machine</div>
+            </a>
+
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-shower"></i></div>
+              <div class="app-detail-name">Hot water system</div>
+            </a>
+
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-lightbulb"></i></div>
+              <div class="app-detail-name">Lighting</div>
+            </a>
+
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-television"></i></div>
+              <div class="app-detail-name">TV / entertainment</div>
+            </a>
+
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-fan"></i></div>
+              <div class="app-detail-name">Dryer</div>
+            </a>
+
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-fork-knife"></i></div>
+              <div class="app-detail-name">Dishwasher</div>
+            </a>
+
+          </div><!-- end appliance summary grid -->
+
+        </main>
+
+      </div></div><!-- end .shell / #app -->
+
+    </div><!-- end .page-content -->
 
     <footer class="site-footer">
       <a href="faq.html">Help &amp; FAQ</a>
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
     </footer>
+  </div><!-- end .page-wrapper -->
 
-  </div>
 </body>
 </html>
