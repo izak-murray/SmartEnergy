@@ -7,6 +7,7 @@
 
 /* ── DESIGN TOKENS ─────────────────────────────────────────── */
 :root {
+  /* Color */
   --primary-green:   #1B4420;
   --secondary-green: #52B788;
   --accent-orange:   #F4A826;
@@ -18,16 +19,17 @@
   --light-green:     #E8F5EE;
   --border:          #E0E0E0;
 
+  /* Font */
   --font-heading: 'Atkinson Hyperlegible', sans-serif;
   --font-body:    'DM Sans', sans-serif;
   --font-data:    'DM Mono', monospace;
   --font-logo:    'Bakbak One', sans-serif;
 
+  /* Font weight */
   --fw-400: 400;
   --fw-500: 500;
   --fw-700: 700;
 }
-/* #endregion */
 
 /* ── RESET ─────────────────────────────────────────────────── */
 *, *::before, *::after {
@@ -43,16 +45,13 @@ body {
   height: 100%;
 }
 
-/* App shell pages override the green background */
 body.app-body {
-  /*background-color: var(--bg-main);*/    /* delete this line all pages are same bg color*/
   overflow-y: auto;
 }
-/* #endregion */
+
 /* ═══════════════════════════════════════════════════════════
    AUTH PAGES — index.html, signup-1/2/3.html
    ═══════════════════════════════════════════════════════════ */
-   /* #region */
 
 .auth-body {
   min-height: 100vh;
@@ -67,7 +66,7 @@ body.app-body {
 
 .auth-section {
   width: 100%;
-  display: flex;
+  display: flex;  /* Flexbox is used to centre the login card horizontally and vertically inside the login section */
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -95,7 +94,7 @@ body.app-body {
   font-size: 20px;
   font-weight: var(--fw-700);
   color: var(--primary-green);
-  display: flex;
+  display: flex;  /* Flexbox is used to align the logo icon and text(“Smart Energy”) horizontally */
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -104,7 +103,7 @@ body.app-body {
 .logo img {
   width: 18px;
   height: 18px;
-  object-fit: contain;
+  object-fit: contain;  /* Keeps the logo image aspect ratio within the fixed size */
 }
 
 /* Headings */
@@ -130,9 +129,9 @@ h1 {
 }
 
 .formel {
-  display: flex;
+  display: flex;  /* Arranges the label and input vertically */
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start;  /* Aligns the form elements to the left */
 }
 
 label {
@@ -319,12 +318,9 @@ input::placeholder {
 }
 
 
-/* #endregion */
-
 /* ═══════════════════════════════════════════════════════════
    APP SHELL — dashboard, appliances, account, settings, faq
    ═══════════════════════════════════════════════════════════ */
-   /* #region */
 
 .shell {
   display: flex;
@@ -1495,7 +1491,6 @@ html:has(#size-l:checked) .main .section-label { font-size: 14px; }
 .toggle-row:has(#pause-all:checked) ~ .toggle-row input:checked + .tgl-track::before {
   transform: translateX(0);
 }
-/* #endregion */
 
 /* ── HEADER & FOOTER CLAMP ─────────────────────────────────── */
 
