@@ -4,15 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Energy — Dashboard</title>
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
+  <!-- Phosphor icon library for UI icons -->
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 </head>
 <body class="app-body">
+
+  <!-- Hidden checkbox used to toggle sidebar collapsed/expanded state via CSS :has() -->
   <input type="checkbox" id="sidebar-toggle" />
+
   <div class="page-wrapper">
     <header class="site-header"></header>
     <div class="page-content">
- 
+
+      <!-- ── ENERGY SCORE MODAL ───────────────────────────────
+           Pure CSS modal using :target pseudo-class.
+           Opens when user clicks the score badge (href="#score-modal").
+           Explains the three components that make up the score.
+      ──────────────────────────────────────────────────────── -->
       <div class="modal-overlay" id="score-modal">
         <div class="modal">
           <h3>How your energy score works</h3>
@@ -20,22 +30,34 @@
           <p><strong style="color:var(--primary-green);">Tips completed (30%)</strong> — how many of your personalised saving tips you've acted on.</p>
           <p><strong style="color:var(--primary-green);">Off-peak usage (20%)</strong> — how much of your usage falls in cheaper rate periods.</p>
           <p>A higher score means lower bills and less environmental impact.</p>
+          <!-- Closing the modal clears the hash, hiding the :target overlay -->
           <a class="modal-close-link" href="#">Got it</a>
         </div>
       </div>
- 
+
+      <!-- ── APP SHELL ───────────────────────────────────────── -->
       <div id="app">
         <div class="shell">
-      
+
+          <!-- ── SIDEBAR NAV ────────────────────────────────────
+               Fixed left sidebar. Collapses to icon-only via the
+               sidebar-toggle checkbox and CSS :has() selector.
+          ──────────────────────────────────────────────────────── -->
           <nav class="sidebar">
-            <div class="sidebar-logo">
+            <a class="sidebar-logo" href="dashboard.html">
+              <!-- Full logo shown when sidebar is expanded -->
               <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
+              <!-- Icon-only logo shown when sidebar is collapsed -->
               <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
-            </div>
+            </a>
+
+            <!-- Toggle label controls the sidebar-toggle checkbox -->
             <label class="sidebar-toggle-btn" for="sidebar-toggle">
               <i class="ph ph-list"></i>
             </label>
-            <a class="nav-item  active" href="dashboard.html">
+
+            <!-- Main navigation links — "active" class highlights current page -->
+            <a class="nav-item active" href="dashboard.html">
               <i class="ph ph-house"></i>
               <span class="nav-label">Dashboard</span>
             </a>
@@ -56,100 +78,208 @@
               <span class="nav-label">FAQ</span>
             </a>
           </nav>
-    <main class="main">
-      <div class="top-row">
-        <h1>Good morning, Elise</h1>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <div style="font-size:12px;color:#888;">Energy score</div>
-          <a class="score-badge" href="#score-modal">
-            <div class="score-dot"></div>74
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          </a>
+
+          <!-- ── MAIN CONTENT ───────────────────────────────── -->
+          <main class="main">
+
+            <!-- ── TOP ROW: Greeting + Energy Score ────────────
+                 Score badge links to the score-modal above.
+                 Score dot is a CSS-styled green indicator.
+                 Info SVG icon is inline to avoid an extra request.
+            ──────────────────────────────────────────────────── -->
+            <div class="top-row">
+              <h1>Good morning, Elise</h1>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div style="font-size:12px;color:#888;">Energy score</div>
+                <a class="score-badge" href="#score-modal">
+                  <div class="score-dot"></div>74
+                  <!-- Inline SVG info icon — no external file needed -->
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- ── DISMISSIBLE ALERT BANNER ─────────────────────
+                 Pure CSS dismiss pattern — hidden checkbox toggles
+                 the alert off via CSS :checked ~ .alert selector.
+                 "Dismiss" label targets the checkbox, not a button.
+            ──────────────────────────────────────────────────── -->
+            <input class="dismiss-cb" type="checkbox" id="dismiss-alert" />
+            <div class="alert">
+              <!-- Inline SVG warning triangle — matches accent-orange token -->
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4A826" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <div>
+                <div class="alert-title">High usage — Air conditioning</div>
+                <div class="alert-body">A/C running 6+ hrs today. Usage is 34% above your weekly average.</div>
+                <div class="alert-btns">
+                  <a class="btn-sm filled" href="appliances.html">See why</a>
+                  <!-- Label targets dismiss-cb checkbox to hide the alert without JS -->
+                  <label class="btn-sm" for="dismiss-alert" style="cursor:pointer;">Dismiss</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── STAT CARDS ───────────────────────────────────
+                 3-column grid showing today's key metrics.
+                 "up" class = orange (above average warning).
+                 "ok" class = green (positive result).
+            ──────────────────────────────────────────────────── -->
+            <div class="stat-cards">
+              <div class="stat-card">
+                <div class="stat-label">Today's usage</div>
+                <div class="stat-value">18.4 kWh</div>
+                <div class="stat-sub up">▲ 34% vs avg</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Bill prediction</div>
+                <div class="stat-value">$134</div>
+                <div class="stat-sub up">▲ $12 vs last month</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Tips completed</div>
+                <div class="stat-value">3 / 5</div>
+                <div class="stat-sub ok">↓ $18 saved</div>
+              </div>
+            </div>
+
+            <!-- ── TWO-COLUMN PANELS ─────────────────────────────
+                 Side-by-side on desktop, stacks to single column
+                 on mobile via CSS grid media query.
+            ──────────────────────────────────────────────────── -->
+            <div class="two-col">
+
+              <!-- Weekly bar chart panel ─────────────────────────
+                   Pure CSS bar chart — heights set inline in px.
+                   "spike" class highlights Sunday in amber (above avg).
+                   HTML title attribute provides tooltip on hover.
+              ──────────────────────────────────────────────────── -->
+              <div class="panel">
+                <div class="panel-title">Energy usage this week</div>
+                <div style="font-size:11px;color:#aaa;">Hover a bar to see kWh &amp; cost · Amber = above average</div>
+                <div class="bar-chart">
+                  <div class="bar-wrap"><div class="bar" style="height:61px;" title="Mon — 11.2 kWh · $3.45"></div><div class="bar-lbl">Mon</div></div>
+                  <div class="bar-wrap"><div class="bar" style="height:75px;" title="Tue — 13.8 kWh · $4.25"></div><div class="bar-lbl">Tue</div></div>
+                  <div class="bar-wrap"><div class="bar" style="height:54px;" title="Wed — 9.9 kWh · $3.05"></div><div class="bar-lbl">Wed</div></div>
+                  <div class="bar-wrap"><div class="bar" style="height:82px;" title="Thu — 15.1 kWh · $4.65"></div><div class="bar-lbl">Thu</div></div>
+                  <div class="bar-wrap"><div class="bar" style="height:68px;" title="Fri — 12.5 kWh · $3.85"></div><div class="bar-lbl">Fri</div></div>
+                  <div class="bar-wrap"><div class="bar" style="height:52px;" title="Sat — 9.5 kWh · $2.93"></div><div class="bar-lbl">Sat</div></div>
+                  <!-- "spike" class renders amber to flag above-average day -->
+                  <div class="bar-wrap"><div class="bar spike" style="height:100px;" title="Sun — 18.4 kWh · $5.67"></div><div class="bar-lbl spike">Sun</div></div>
+                </div>
+              </div>
+
+              <!-- By-appliance panel ──────────────────────────────
+                   Horizontal progress bars show each appliance's
+                   share of today's usage. Width set as % of highest
+                   consumer (air con = 100% baseline).
+                   "top" class = dark green for highest consumer.
+                   Each row links through to the appliances page.
+              ──────────────────────────────────────────────────── -->
+              <div class="panel">
+                <div class="panel-title">By appliance — today</div>
+                <div class="app-list">
+                  <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;">
+                    <span class="app-name">Air con</span>
+                    <!-- "top" class = dark green, marks highest consumer -->
+                    <div class="app-track"><div class="app-fill top" style="width:100%"></div></div>
+                    <span class="app-cost">$2.77</span>
+                  </a>
+                  <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;">
+                    <span class="app-name">Hot water</span>
+                    <div class="app-track"><div class="app-fill" style="width:80%"></div></div>
+                    <span class="app-cost">$2.22</span>
+                  </a>
+                  <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;">
+                    <span class="app-name">Fridge</span>
+                    <div class="app-track"><div class="app-fill" style="width:40%"></div></div>
+                    <span class="app-cost">$1.11</span>
+                  </a>
+                  <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;">
+                    <span class="app-name">TV</span>
+                    <div class="app-track"><div class="app-fill" style="width:21%"></div></div>
+                    <span class="app-cost">$0.19</span>
+                  </a>
+                  <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;">
+                    <span class="app-name">Lighting</span>
+                    <div class="app-track"><div class="app-fill" style="width:11%"></div></div>
+                    <span class="app-cost">$0.11</span>
+                  </a>
+                  <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;">
+                    <span class="app-name">Washer</span>
+                    <div class="app-track"><div class="app-fill" style="width:9%"></div></div>
+                    <span class="app-cost">$0.15</span>
+                  </a>
+                </div>
+                <div style="margin-top:10px;font-size:11px;">
+                  <a href="appliances.html" style="color:var(--secondary-green);text-decoration:none;">Full breakdown →</a>
+                </div>
+              </div>
+
+            </div><!-- end .two-col -->
+
+            <!-- ── TIPS & ADVICE PANEL ──────────────────────────
+                 Horizontally scrollable tip cards (CSS overflow-x).
+                 Tips are personalised to Elise's appliance profile.
+                 Each shows potential monthly saving as a pill badge.
+            ──────────────────────────────────────────────────── -->
+            <div class="panel">
+              <div class="panel-title">Tips &amp; Advice</div>
+              <div class="tips-section">
+                <div class="tip-row">
+                  <div class="tip-icon">❄️</div>
+                  <div>
+                    <div class="tip-title">Set A/C to 24–26°C</div>
+                    <div class="tip-desc">Each degree lower adds ~10% to cooling costs.</div>
+                    <span class="tip-save">Save ~$18/month</span>
+                  </div>
+                </div>
+                <div class="tip-row">
+                  <div class="tip-icon">🚿</div>
+                  <div>
+                    <div class="tip-title">Shorten showers by 2 mins</div>
+                    <div class="tip-desc">Hot water is your second-biggest energy cost.</div>
+                    <span class="tip-save">Save ~$8/month</span>
+                  </div>
+                </div>
+                <div class="tip-row">
+                  <div class="tip-icon">🫧</div>
+                  <div>
+                    <div class="tip-title">Wash on cold cycle</div>
+                    <div class="tip-desc">Heating water accounts for 90% of washing machine energy.</div>
+                    <span class="tip-save">Save ~$6/month</span>
+                  </div>
+                </div>
+                <div class="tip-row">
+                  <div class="tip-icon">💡</div>
+                  <div>
+                    <div class="tip-title">Switch to LED bulbs</div>
+                    <div class="tip-desc">Uses 75% less energy than incandescent.</div>
+                    <span class="tip-save">Save ~$4/month</span>
+                  </div>
+                </div>
+              </div>
+            </div><!-- end tips panel -->
+
+          </main>
         </div>
-      </div>
- 
-      <input class="dismiss-cb" type="checkbox" id="dismiss-alert" />
-      <div class="alert">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F4A826" stroke-width="2.5" style="flex-shrink:0;margin-top:1px;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <div>
-          <div class="alert-title">High usage — Air conditioning</div>
-          <div class="alert-body">A/C running 6+ hrs today. Usage is 34% above your weekly average.</div>
-          <div class="alert-btns">
-            <a class="btn-sm filled" href="appliances.html">See why</a>
-            <label class="btn-sm" for="dismiss-alert" style="cursor:pointer;">Dismiss</label>
-          </div>
-        </div>
-      </div>
- 
-      <div class="stat-cards">
-        <div class="stat-card">
-          <div class="stat-label">Today's usage</div>
-          <div class="stat-value">18.4 kWh</div>
-          <div class="stat-sub up">▲ 34% vs avg</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Bill prediction</div>
-          <div class="stat-value">$134</div>
-          <div class="stat-sub up">▲ $12 vs last month</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Tips completed</div>
-          <div class="stat-value">3 / 5</div>
-          <div class="stat-sub ok">↓ $18 saved</div>
-        </div>
-      </div>
- 
-      <div class="two-col">
-        <div class="panel">
-          <div class="panel-title">Energy usage this week</div>
-          <div style="font-size:11px;color:#aaa;">Hover a bar to see kWh &amp; cost · Amber = above average</div>
-          <div class="bar-chart">
-            <div class="bar-wrap"><div class="bar" style="height:61px;" title="Mon — 11.2 kWh · $3.45"></div><div class="bar-lbl">Mon</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:75px;" title="Tue — 13.8 kWh · $4.25"></div><div class="bar-lbl">Tue</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:54px;" title="Wed — 9.9 kWh · $3.05"></div><div class="bar-lbl">Wed</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:82px;" title="Thu — 15.1 kWh · $4.65"></div><div class="bar-lbl">Thu</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:68px;" title="Fri — 12.5 kWh · $3.85"></div><div class="bar-lbl">Fri</div></div>
-            <div class="bar-wrap"><div class="bar" style="height:52px;" title="Sat — 9.5 kWh · $2.93"></div><div class="bar-lbl">Sat</div></div>
-            <div class="bar-wrap"><div class="bar spike" style="height:100px;" title="Sun — 18.4 kWh · $5.67"></div><div class="bar-lbl spike">Sun</div></div>
-          </div>
-        </div>
- 
-        <div class="panel">
-          <div class="panel-title">By appliance — today</div>
-          <div class="app-list">
-            <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;"><span class="app-name">Air con</span><div class="app-track"><div class="app-fill top" style="width:100%"></div></div><span class="app-cost">$2.77</span></a>
-            <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;"><span class="app-name">Hot water</span><div class="app-track"><div class="app-fill" style="width:80%"></div></div><span class="app-cost">$2.22</span></a>
-            <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;"><span class="app-name">Fridge</span><div class="app-track"><div class="app-fill" style="width:40%"></div></div><span class="app-cost">$1.11</span></a>
-            <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;"><span class="app-name">TV</span><div class="app-track"><div class="app-fill" style="width:21%"></div></div><span class="app-cost">$0.19</span></a>
-            <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;"><span class="app-name">Lighting</span><div class="app-track"><div class="app-fill" style="width:11%"></div></div><span class="app-cost">$0.11</span></a>
-            <a class="app-row" href="appliances.html" style="text-decoration:none;color:inherit;"><span class="app-name">Washer</span><div class="app-track"><div class="app-fill" style="width:9%"></div></div><span class="app-cost">$0.15</span></a>
-          </div>
-          <div style="margin-top:10px;font-size:11px;"><a href="appliances.html" style="color:var(--secondary-green);text-decoration:none;">Full breakdown →</a></div>
-        </div>
-      </div>
- 
-      <div class="panel">
-        <div class="panel-title">Tips &amp; Advice</div>
-        <div class="tips-section">
-          <div class="tip-row"><div class="tip-icon">❄️</div><div><div class="tip-title">Set A/C to 24–26°C</div><div class="tip-desc">Each degree lower adds ~10% to cooling costs.</div><span class="tip-save">Save ~$18/month</span></div></div>
-          <div class="tip-row"><div class="tip-icon">🚿</div><div><div class="tip-title">Shorten showers by 2 mins</div><div class="tip-desc">Hot water is your second-biggest energy cost.</div><span class="tip-save">Save ~$8/month</span></div></div>
-          <div class="tip-row"><div class="tip-icon">🫧</div><div><div class="tip-title">Wash on cold cycle</div><div class="tip-desc">Heating water accounts for 90% of washing machine energy.</div><span class="tip-save">Save ~$6/month</span></div></div>
-          <div class="tip-row"><div class="tip-icon">💡</div><div><div class="tip-title">Switch to LED bulbs</div><div class="tip-desc">Uses 75% less energy than incandescent.</div><span class="tip-save">Save ~$4/month</span></div></div>
-        </div>
-        </div>
- 
-        </main>
-      </div>
-    </div>
-  </div><!-- end .page-content -->
-  <footer class="site-footer">
-    <a href="faq.html">Help &amp; FAQ</a>
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-  </footer>
-</div><!-- end .page-wrapper -->
-</body>
-</html>
-</div>
+      </div><!-- end .shell / #app -->
+
+    </div><!-- end .page-content -->
+
+    <footer class="site-footer">
+      <a href="faq.html">Help &amp; FAQ</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </footer>
+
+  </div><!-- end .page-wrapper -->
 </body>
 </html>

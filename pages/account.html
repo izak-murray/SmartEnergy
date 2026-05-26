@@ -4,170 +4,182 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Energy — My Account</title>
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
+  <!-- Phosphor icon library for UI icons -->
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 </head>
 
 <body class="app-body">
+
+  <!-- Hidden checkbox used to toggle sidebar collapsed/expanded state via CSS :has() -->
   <input type="checkbox" id="sidebar-toggle" />
+
   <div class="page-wrapper">
     <header class="site-header"></header>
     <div class="page-content">
       <div id="app"><div class="shell">
-      <nav class="sidebar">
-        <div class="sidebar-logo">
-          <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
-          <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
-        </div>
 
-        <label class="sidebar-toggle-btn" for="sidebar-toggle">
-          <i class="ph ph-list"></i>
-        </label>
-        <a class="nav-item" href="dashboard.html">
-          <i class="ph ph-house"></i>
-          <span class="nav-label">Dashboard</span>
-        </a>
+        <!-- ── SIDEBAR NAV ──────────────────────────────────────
+             Fixed left sidebar. Collapses to icon-only via the
+             sidebar-toggle checkbox and CSS :has() selector.
+        ──────────────────────────────────────────────────────── -->
+        <nav class="sidebar">
+          <a class="sidebar-logo" href="dashboard.html">
+            <!-- Full logo shown when sidebar is expanded -->
+            <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
+            <!-- Icon-only logo shown when sidebar is collapsed -->
+            <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
+          </a>
 
-        <a class="nav-item" href="appliances.html">
-          <i class="ph ph-plug"></i>
-          <span class="nav-label">Appliances</span>
-        </a>
+          <!-- Toggle label controls the sidebar-toggle checkbox -->
+          <label class="sidebar-toggle-btn" for="sidebar-toggle">
+            <i class="ph ph-list"></i>
+          </label>
 
-        <a class="nav-item active" href="account.html">
-          <i class="ph ph-user"></i>
-          <span class="nav-label">Account</span>
-        </a>
+          <!-- Main navigation links — "active" class highlights current page -->
+          <a class="nav-item" href="dashboard.html">
+            <i class="ph ph-house"></i>
+            <span class="nav-label">Dashboard</span>
+          </a>
+          <a class="nav-item" href="appliances.html">
+            <i class="ph ph-plug"></i>
+            <span class="nav-label">Appliances</span>
+          </a>
+          <a class="nav-item active" href="account.html">
+            <i class="ph ph-user"></i>
+            <span class="nav-label">Account</span>
+          </a>
+          <a class="nav-item" href="settings.html">
+            <i class="ph ph-gear"></i>
+            <span class="nav-label">Settings</span>
+          </a>
+          <a class="nav-item" href="faq.html">
+            <i class="ph ph-question"></i>
+            <span class="nav-label">FAQ</span>
+          </a>
+        </nav>
 
-        <a class="nav-item" href="settings.html">
-          <i class="ph ph-gear"></i>
-          <span class="nav-label">Settings</span>
-        </a>
+        <!-- ── MAIN CONTENT ─────────────────────────────────── -->
+        <main class="main">
 
-        <a class="nav-item" href="faq.html">
-          <i class="ph ph-question"></i>
-          <span class="nav-label">FAQ</span>
-        </a>
-      </nav>
-      
-    <main class="main">
-      <div class="view-title">My Account</div>
-      <div class="account-card">
-        <div class="account-header">
-          <div class="account-avatar">EM</div>
-          <div>
-            <div class="account-name">Elise Monroe</div>
-            <div class="account-email">elise.monroe@gmail.com</div>
+          <!-- ── PROFILE CARD ─────────────────────────────────
+               Displays the user's account details as populated
+               during the sign-up flow. In a real implementation
+               these values would be fetched from a database.
+          ──────────────────────────────────────────────────── -->
+          <div class="view-title">My Account</div>
+          <div class="account-card">
+
+            <!-- Avatar uses initials as a CSS-styled placeholder -->
+            <div class="account-header">
+              <div class="account-avatar">EM</div>
+              <div>
+                <div class="account-name">Elise Monroe</div>
+                <div class="account-email">elise.monroe@gmail.com</div>
+              </div>
+            </div>
+
+            <!-- Account detail rows — label on left, value on right -->
+            <div class="account-row">
+              <span>Address</span>
+              <span>Spring Hill, QLD 4000</span>
+            </div>
+            <div class="account-row">
+              <span>Household</span>
+              <span>Renter — apartment</span>
+            </div>
+            <div class="account-row">
+              <span>Occupants</span>
+              <span>3 people</span>
+            </div>
+            <div class="account-row">
+              <span>Energy retailer</span>
+              <span>Origin Energy</span>
+            </div>
+            <div class="account-row">
+              <span>Energy goal</span>
+              <span>Reduce my bills</span>
+            </div>
+            <div class="account-row">
+              <span>Solar panels</span>
+              <span>No solar panels</span>
+            </div>
+            <div class="account-row">
+              <span>Bill splitting</span>
+              <span>3-way split enabled</span>
+            </div>
+
+            <!-- Action buttons — Settings navigates in-app, Sign out returns to login -->
+            <div class="account-actions">
+              <a class="account-btn" href="settings.html">Settings</a>
+              <a class="account-btn account-btn-primary" href="../index.html">Sign out</a>
+            </div>
           </div>
-        </div>
-        <div class="account-row">
-          <span>Address</span>
-          <span>Spring Hill, QLD 4000</span>
-        </div>
 
-        <div class="account-row">
-          <span>Household</span>
-          <span>Renter — apartment</span>
-        </div>
+          <!-- ── APPLIANCE SUMMARY GRID ───────────────────────
+               Quick-glance overview of registered appliances.
+               Each card links through to the full appliance
+               breakdown page for detailed cost information.
+               Grid layout defined in CSS as 4 columns / 2 rows.
+          ──────────────────────────────────────────────────── -->
+          <div class="view-title">Your appliances</div>
+          <div class="app-detail-grid account-appliance-summary-grid">
 
-        <div class="account-row">
-          <span>Occupants</span>
-          <span>3 people</span>
-        </div>
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-snowflake"></i></div>
+              <div class="app-detail-name">Air conditioning</div>
+            </a>
 
-        <div class="account-row">
-          <span>Energy retailer</span>
-          <span>Origin Energy</span>
-        </div>
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-thermometer"></i></div>
+              <div class="app-detail-name">Fridge / freezer</div>
+            </a>
 
-        <div class="account-row">
-          <span>Energy goal</span>
-          <span>Reduce my bills</span>
-        </div>
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-washing-machine"></i></div>
+              <div class="app-detail-name">Washing machine</div>
+            </a>
 
-        <div class="account-row">
-          <span>Solar panels</span>
-          <span>No solar panels</span>
-        </div>
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-shower"></i></div>
+              <div class="app-detail-name">Hot water system</div>
+            </a>
 
-        <div class="account-row">
-          <span>Bill splitting</span>
-          <span>3-way split enabled</span>
-        </div>
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-lightbulb"></i></div>
+              <div class="app-detail-name">Lighting</div>
+            </a>
 
-        <div class="account-actions">
-            <a class="btn-sm secondary" href="settings.html">Settings</a>
-            <a class="btn-sm primary" href="../index.html">Sign out</a>
-        </div>
-      </div>
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-television"></i></div>
+              <div class="app-detail-name">TV / entertainment</div>
+            </a>
 
-      <div class="view-title">Your appliances</div>
-      <div class="app-detail-grid account-appliance-summary-grid">
-        <a class="app-detail-card account-app-detail-card" href="appliances.html">
-          <div class="app-emoji">
-            <i class="ph ph-snowflake"></i>
-          </div>
-          <div class="app-detail-name">Air conditioning</div>
-        </a>
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-fan"></i></div>
+              <div class="app-detail-name">Dryer</div>
+            </a>
 
-        <a class="app-detail-card account-app-detail-card" href="appliances.html">
-          <div class="app-emoji">
-            <i class="ph ph-thermometer"></i>
-          </div>
-          <div class="app-detail-name">Fridge / freezer</div>
-        </a>
-        
-        <a class="app-detail-card account-app-detail-card" href="appliances.html">
-          <div class="app-emoji">
-            <i class="ph ph-washing-machine"></i>
-          </div>
-          <div class="app-detail-name">Washing machine</div>
-        </a>
+            <a class="app-detail-card account-app-detail-card" href="appliances.html">
+              <div class="app-emoji"><i class="ph ph-fork-knife"></i></div>
+              <div class="app-detail-name">Dishwasher</div>
+            </a>
 
-        <a class="app-detail-card account-app-detail-card" href="appliances.html">
-          <div class="app-emoji">
-            <i class="ph ph-shower"></i>
-          </div>
-          <div class="app-detail-name">Hot water system</div>
-        </a>
+          </div><!-- end appliance summary grid -->
 
-        <a class="app-detail-card account-app-detail-card" href="appliances.html">
-          <div class="app-emoji">
-            <i class="ph ph-lightbulb"></i>
-          </div>
-          <div class="app-detail-name">Lighting</div>
-        </a>
+        </main>
 
-        <a class="app-detail-card account-app-detail-card" href="appliances.html">
-          <div class="app-emoji">
-            <i class="ph ph-television"></i>
-          </div>
-          <div class="app-detail-name">TV / entertainment</div>
-        </a>
+      </div></div><!-- end .shell / #app -->
 
-        <a class="app-detail-card account-app-detail-card" href="appliances.html">
-          <div class="app-emoji">
-            <i class="ph ph-fan"></i>
-          </div>
-          <div class="app-detail-name">Dryer</div>
-        </a>
+    </div><!-- end .page-content -->
 
-        <a class="app-detail-card account-app-detail-card" href="appliances.html">
-          <div class="app-emoji">
-            <i class="ph ph-fork-knife"></i>
-          </div>
-          <div class="app-detail-name">Dishwasher</div>
-        </a>
-      </div>
-    </main>
-    
-  </div></div>
-
-    </div>
     <footer class="site-footer">
       <a href="faq.html">Help &amp; FAQ</a>
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
     </footer>
-  </div>
+  </div><!-- end .page-wrapper -->
+
 </body>
 </html>

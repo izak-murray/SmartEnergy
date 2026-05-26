@@ -4,239 +4,323 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Energy — Settings</title>
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="../css/style.css" />
+  <!-- Phosphor icon library for UI icons -->
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
 </head>
 <body class="app-body">
+
+  <!-- Hidden checkbox used to toggle sidebar collapsed/expanded state via CSS :has() -->
   <input type="checkbox" id="sidebar-toggle" />
+
   <div class="page-wrapper">
     <header class="site-header"></header>
     <div class="page-content">
 
-    <!-- Password change modal -->
-    <div class="modal-overlay" id="password-modal">
-      <div class="modal">
-        <h3>Change password</h3>
-        <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">
-          Enter your current password and choose a new one.
-        </p>
-        <input class="pwd-input" type="password" placeholder="Current password" />
-        <input class="pwd-input" type="password" placeholder="New password" />
-        <input class="pwd-input" type="password" placeholder="Confirm new password" />
-        <a class="modal-submit" href="#password-success">Reset password</a>
-        <a class="modal-cancel" href="#">Cancel</a>
-      </div>
-    </div>
+      <!-- ── MODALS ─────────────────────────────────────────────
+           Pure CSS modal system using :target pseudo-class.
+           Modals display when their id matches the URL hash.
+           e.g. href="#password-modal" triggers this overlay.
+      ──────────────────────────────────────────────────────── -->
 
-    <!-- Success modal -->
-    <div class="modal-overlay" id="password-success">
-      <div class="modal" style="text-align:center;">
-        <h3>Password reset!</h3>
-        <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">(in concept)</p>
-        <div class="success-gif"></div>
-        <a class="modal-close-link" href="#">Okay</a>
-      </div>
-    </div>
-
-    <div id="app"><div class="shell">
-      <nav class="sidebar">
-        <div class="sidebar-logo">
-          <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
-          <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
+      <!-- Password change modal — shown when user clicks "Change password" -->
+      <div class="modal-overlay" id="password-modal">
+        <div class="modal">
+          <h3>Change password</h3>
+          <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">
+            Enter your current password and choose a new one.
+          </p>
+          <!-- Password inputs — required in a real implementation would be validated server-side -->
+          <input class="pwd-input" type="password" placeholder="Current password" />
+          <input class="pwd-input" type="password" placeholder="New password" />
+          <input class="pwd-input" type="password" placeholder="Confirm new password" />
+          <!-- href navigates to success modal via :target -->
+          <a class="modal-submit" href="#password-success">Reset password</a>
+          <!-- Cancel closes modal by clearing the hash -->
+          <a class="modal-cancel" href="#">Cancel</a>
         </div>
-        <label class="sidebar-toggle-btn" for="sidebar-toggle">
-          <i class="ph ph-list"></i>
-        </label>
-        <a class="nav-item" href="dashboard.html">
-          <i class="ph ph-house"></i>
-          <span class="nav-label">Dashboard</span>
-        </a>
-        <a class="nav-item" href="appliances.html">
-          <i class="ph ph-plug"></i>
-          <span class="nav-label">Appliances</span>
-        </a>
-        <a class="nav-item" href="account.html">
-          <i class="ph ph-user"></i>
-          <span class="nav-label">Account</span>
-        </a>
-        <a class="nav-item " href="settings.html">
-          <i class="ph ph-gear"></i>
-          <span class="nav-label">Settings</span>
-        </a>
-        <a class="nav-item" href="faq.html">
-          <i class="ph ph-question"></i>
-          <span class="nav-label">FAQ</span>
-        </a>
-      </nav>
-      <main class="main">
-        <div class="view-title">Settings</div>
-        <div class="settings-grid">
-          <div class="settings-card">
-            <span class="section-label">Notifications</span>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">Pause all notifications</div>
-                <div class="tgl-sub">Turn off everything below at once</div>
-              </div>
-              <label class="toggle"><input type="checkbox" id="pause-all" /><div class="tgl-track"></div></label>
-            </div>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">Usage spike alerts</div>
-                <div class="tgl-sub">Notify when 20%+ above average</div>
-              </div>
-              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-            </div>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">Weekly summary</div>
-                <div class="tgl-sub">Every Monday morning</div>
-              </div>
-              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-            </div>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">New tip suggestions</div>
-                <div class="tgl-sub">When new tips are available</div>
-              </div>
-              <label class="toggle"><input type="checkbox" /><div class="tgl-track"></div></label>
-            </div>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">Off-peak reminders</div>
-                <div class="tgl-sub">When cheaper rates start</div>
-              </div>
-              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-            </div>
-          </div>
+      </div>
 
-          <div class="settings-card">
-            <span class="section-label">Account</span>
-            <a class="link-row" href="account.html">
-              <div>
-                <div class="tgl-label">Profile details</div>
-                <div class="tgl-sub">Name, address, household setup</div>
-              </div>
-              <span class="link-chev">›</span>
-            </a>
-            <a class="link-row" href="#password-modal">
-              <div>
-                <div class="tgl-label">Change password</div>
-                <div class="tgl-sub">Last updated 3 months ago</div>
-              </div>
-              <span class="link-chev">›</span>
-            </a>
-          </div>
-
-          <div class="settings-card">
-            <span class="section-label">Display &amp; Accessibility</span>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">Text size</div>
-                <div class="tgl-sub">Adjust for easier reading</div>
-              </div>
-              <div class="size-group">
-                <input type="radio" name="textsize" id="size-s" class="size-radio" />
-                <label for="size-s" class="btn-sm size-btn size-s">A</label>
-                <input type="radio" name="textsize" id="size-m" class="size-radio" checked />
-                <label for="size-m" class="btn-sm size-btn size-m">A</label>
-                <input type="radio" name="textsize" id="size-l" class="size-radio" />
-                <label for="size-l" class="btn-sm size-btn size-l">A</label>
-              </div>
-            </div>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">High contrast mode</div>
-                <div class="tgl-sub">Stronger colours for low vision</div>
-              </div>
-              <label class="toggle"><input type="checkbox" id="high-contrast" /><div class="tgl-track"></div></label>
-            </div>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">Show costs in dollars</div>
-                <div class="tgl-sub">Display $ alongside kWh figures</div>
-              </div>
-              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-            </div>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">Show carbon footprint</div>
-                <div class="tgl-sub">Display CO₂ equivalents on charts</div>
-              </div>
-              <label class="toggle"><input type="checkbox" /><div class="tgl-track"></div></label>
-            </div>
-          </div>
-
-          <div class="settings-card">
-            <span class="section-label">Bill splitting</span>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">Enable bill splitting</div>
-                <div class="tgl-sub">Divide costs between flatmates by usage</div>
-              </div>
-              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-            </div>
-            <a class="link-row" href="#">
-              <div>
-                <div class="tgl-label">Manage flatmates</div>
-                <div class="tgl-sub">3-way split currently active</div>
-              </div>
-              <span class="link-chev">›</span>
-            </a>
-          </div>
-
-          <div class="settings-card">
-            <span class="section-label">Connected services</span>
-            <a class="link-row" href="#">
-              <div>
-                <div class="tgl-label">Smart meter</div>
-                <div class="tgl-sub">Not connected — set up for real-time data</div>
-              </div>
-              <span class="link-chev">›</span>
-            </a>
-            <a class="link-row" href="#">
-              <div>
-                <div class="tgl-label">Solar inverter</div>
-                <div class="tgl-sub">Not connected — no solar on file</div>
-              </div>
-              <span class="link-chev">›</span>
-            </a>
-            <div class="acct-row">
-              <span>Energy retailer</span>
-              <span>Origin Energy</span>
-            </div>
-          </div>
-
-          <div class="settings-card">
-            <span class="section-label">Data &amp; Privacy</span>
-            <div class="toggle-row">
-              <div>
-                <div class="tgl-label">Anonymous usage analytics</div>
-                <div class="tgl-sub">Help improve Smart Energy (no personal data shared)</div>
-              </div>
-              <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
-            </div>
-            <a class="link-row" href="../data/userdata.json" download="smart-energy-elise-monroe.json">
-              <div>
-                <div class="tgl-label">Download my data</div>
-                <div class="tgl-sub">Get a copy of everything we hold</div>
-              </div>
-              <span class="link-chev">›</span>
-            </a>
-            <div style="padding-top:14px;">
-              <a class="btn-sm danger" href="../index.html" style="text-decoration:none;">Delete my account</a>
-            </div>
-          </div>
+      <!-- Success confirmation modal — shown after "Reset password" is clicked -->
+      <div class="modal-overlay" id="password-success">
+        <div class="modal" style="text-align:center;">
+          <h3>Password reset!</h3>
+          <p style="font-size:13px;color:#555;margin-bottom:14px;font-family:var(--font-body);">(in concept)</p>
+          <!-- Success GIF loaded via CSS background-image on :target -->
+          <div class="success-gif"></div>
+          <a class="modal-close-link" href="#">Okay</a>
         </div>
-      </main>
+      </div>
 
-    </div></div>
-    </div>
+      <!-- ── APP SHELL ───────────────────────────────────────── -->
+      <div id="app"><div class="shell">
+
+        <!-- ── SIDEBAR NAV ──────────────────────────────────────
+             Fixed left sidebar. Collapses to icon-only via the
+             sidebar-toggle checkbox and CSS :has() selector.
+        ──────────────────────────────────────────────────────── -->
+        <nav class="sidebar">
+          <a class="sidebar-logo" href="dashboard.html">
+            <!-- Full logo shown when sidebar is expanded -->
+            <img src="../images/smartenergylogoalt.png" alt="Smart Energy" class="nav-label" />
+            <!-- Icon-only logo shown when sidebar is collapsed -->
+            <img src="../images/logo.png" alt="Smart Energy" class="logo-icon-collapsed" />
+          </a>
+
+          <!-- Toggle label controls the sidebar-toggle checkbox -->
+          <label class="sidebar-toggle-btn" for="sidebar-toggle">
+            <i class="ph ph-list"></i>
+          </label>
+
+          <!-- Main navigation links — "active" class highlights current page -->
+          <a class="nav-item" href="dashboard.html">
+            <i class="ph ph-house"></i>
+            <span class="nav-label">Dashboard</span>
+          </a>
+          <a class="nav-item" href="appliances.html">
+            <i class="ph ph-plug"></i>
+            <span class="nav-label">Appliances</span>
+          </a>
+          <a class="nav-item" href="account.html">
+            <i class="ph ph-user"></i>
+            <span class="nav-label">Account</span>
+          </a>
+          <a class="nav-item active" href="settings.html">
+            <i class="ph ph-gear"></i>
+            <span class="nav-label">Settings</span>
+          </a>
+          <a class="nav-item" href="faq.html">
+            <i class="ph ph-question"></i>
+            <span class="nav-label">FAQ</span>
+          </a>
+        </nav>
+
+        <!-- ── MAIN CONTENT ─────────────────────────────────── -->
+        <main class="main">
+          <div class="view-title">Settings</div>
+
+          <!-- Settings cards use CSS columns layout (3-col desktop, 2-col tablet, 1-col mobile) -->
+          <div class="settings-grid">
+
+            <!-- ── NOTIFICATIONS CARD ───────────────────────────
+                 Toggle switches use hidden checkboxes + CSS labels.
+                 "Pause all" disables sibling rows via CSS :has().
+            ──────────────────────────────────────────────────── -->
+            <div class="settings-card">
+              <span class="section-label">Notifications</span>
+
+              <!-- Master toggle — CSS :has(#pause-all:checked) greys out rows below -->
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">Pause all notifications</div>
+                  <div class="tgl-sub">Turn off everything below at once</div>
+                </div>
+                <label class="toggle"><input type="checkbox" id="pause-all" /><div class="tgl-track"></div></label>
+              </div>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">Usage spike alerts</div>
+                  <div class="tgl-sub">Notify when 20%+ above average</div>
+                </div>
+                <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+              </div>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">Weekly summary</div>
+                  <div class="tgl-sub">Every Monday morning</div>
+                </div>
+                <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+              </div>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">New tip suggestions</div>
+                  <div class="tgl-sub">When new tips are available</div>
+                </div>
+                <label class="toggle"><input type="checkbox" /><div class="tgl-track"></div></label>
+              </div>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">Off-peak reminders</div>
+                  <div class="tgl-sub">When cheaper rates start</div>
+                </div>
+                <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+              </div>
+            </div>
+
+            <!-- ── ACCOUNT CARD ─────────────────────────────────
+                 Link rows navigate to related pages or open modals.
+            ──────────────────────────────────────────────────── -->
+            <div class="settings-card">
+              <span class="section-label">Account</span>
+
+              <!-- Navigates to account.html for profile editing -->
+              <a class="link-row" href="account.html">
+                <div>
+                  <div class="tgl-label">Profile details</div>
+                  <div class="tgl-sub">Name, address, household setup</div>
+                </div>
+                <span class="link-chev">›</span>
+              </a>
+
+              <!-- Opens password change modal via :target -->
+              <a class="link-row" href="#password-modal">
+                <div>
+                  <div class="tgl-label">Change password</div>
+                  <div class="tgl-sub">Last updated 3 months ago</div>
+                </div>
+                <span class="link-chev">›</span>
+              </a>
+            </div>
+
+            <!-- ── DISPLAY & ACCESSIBILITY CARD ────────────────
+                 Text size uses radio buttons + CSS :has() to scale
+                 font sizes across the app without JavaScript.
+                 High contrast mode also driven by CSS :has().
+            ──────────────────────────────────────────────────── -->
+            <div class="settings-card">
+              <span class="section-label">Display &amp; Accessibility</span>
+
+              <!-- Text size radio group — S/M/L scale via html:has(#size-x:checked) in CSS -->
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">Text size</div>
+                  <div class="tgl-sub">Adjust for easier reading</div>
+                </div>
+                <div class="size-group">
+                  <input type="radio" name="textsize" id="size-s" class="size-radio" />
+                  <label for="size-s" class="btn-sm size-btn size-s">A</label>
+                  <input type="radio" name="textsize" id="size-m" class="size-radio" checked />
+                  <label for="size-m" class="btn-sm size-btn size-m">A</label>
+                  <input type="radio" name="textsize" id="size-l" class="size-radio" />
+                  <label for="size-l" class="btn-sm size-btn size-l">A</label>
+                </div>
+              </div>
+
+              <!-- High contrast — body:has(#high-contrast:checked) overrides colour tokens in CSS -->
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">High contrast mode</div>
+                  <div class="tgl-sub">Stronger colours for low vision</div>
+                </div>
+                <label class="toggle"><input type="checkbox" id="high-contrast" /><div class="tgl-track"></div></label>
+              </div>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">Show costs in dollars</div>
+                  <div class="tgl-sub">Display $ alongside kWh figures</div>
+                </div>
+                <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+              </div>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">Show carbon footprint</div>
+                  <div class="tgl-sub">Display CO₂ equivalents on charts</div>
+                </div>
+                <label class="toggle"><input type="checkbox" /><div class="tgl-track"></div></label>
+              </div>
+            </div>
+
+            <!-- ── BILL SPLITTING CARD ──────────────────────────
+                 Allows household costs to be divided between flatmates.
+            ──────────────────────────────────────────────────── -->
+            <div class="settings-card">
+              <span class="section-label">Bill splitting</span>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">Enable bill splitting</div>
+                  <div class="tgl-sub">Divide costs between flatmates by usage</div>
+                </div>
+                <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+              </div>
+
+              <!-- Placeholder link — would open flatmate management in a full implementation -->
+              <a class="link-row" href="#">
+                <div>
+                  <div class="tgl-label">Manage flatmates</div>
+                  <div class="tgl-sub">3-way split currently active</div>
+                </div>
+                <span class="link-chev">›</span>
+              </a>
+            </div>
+
+            <!-- ── CONNECTED SERVICES CARD ──────────────────────
+                 Smart meter and solar inverter connections would
+                 enable real-time data instead of estimates.
+            ──────────────────────────────────────────────────── -->
+            <div class="settings-card">
+              <span class="section-label">Connected services</span>
+
+              <a class="link-row" href="#">
+                <div>
+                  <div class="tgl-label">Smart meter</div>
+                  <div class="tgl-sub">Not connected — set up for real-time data</div>
+                </div>
+                <span class="link-chev">›</span>
+              </a>
+
+              <a class="link-row" href="#">
+                <div>
+                  <div class="tgl-label">Solar inverter</div>
+                  <div class="tgl-sub">Not connected — no solar on file</div>
+                </div>
+                <span class="link-chev">›</span>
+              </a>
+
+              <!-- Static display of current energy retailer -->
+              <div class="acct-row">
+                <span>Energy retailer</span>
+                <span>Origin Energy</span>
+              </div>
+            </div>
+
+            <!-- ── DATA & PRIVACY CARD ──────────────────────────
+                 GDPR-style controls — data download and account deletion.
+            ──────────────────────────────────────────────────── -->
+            <div class="settings-card">
+              <span class="section-label">Data &amp; Privacy</span>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="tgl-label">Anonymous usage analytics</div>
+                  <div class="tgl-sub">Help improve Smart Energy (no personal data shared)</div>
+                </div>
+                <label class="toggle"><input type="checkbox" checked /><div class="tgl-track"></div></label>
+              </div>
+
+              <!-- Download attribute triggers file download instead of navigation -->
+              <a class="link-row" href="../data/userdata.json" download="smart-energy-elise-monroe.json">
+                <div>
+                  <div class="tgl-label">Download my data</div>
+                  <div class="tgl-sub">Get a copy of everything we hold</div>
+                </div>
+                <span class="link-chev">›</span>
+              </a>
+
+              <!-- Destructive action — redirects to sign-in page to simulate account deletion -->
+              <div style="padding-top:14px;">
+                <a class="btn-sm danger" href="../index.html" style="text-decoration:none;">Delete my account</a>
+              </div>
+            </div>
+
+          </div><!-- end .settings-grid -->
+        </main>
+
+      </div></div><!-- end .shell / #app -->
+    </div><!-- end .page-content -->
+
     <footer class="site-footer">
       <a href="faq.html">Help &amp; FAQ</a>
       <a href="#">Privacy</a>
       <a href="#">Terms</a>
     </footer>
-  </div>
+  </div><!-- end .page-wrapper -->
 </body>
 </html>
